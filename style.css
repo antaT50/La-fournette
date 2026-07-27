@@ -3,3 +3,135 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body{
+    width:100vw;
+    font-weight: bold;
+    color: whitesmoke;
+
+}
+
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: rgb(0, 102, 255);
+    width: 100%;
+    height: 70px;
+    position: static;
+}
+
+nav>ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    width: 50%;
+}
+
+nav>ul>li{
+    width: 12.5%;
+}
+
+a{
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+nav>ul>li:hover>a{
+    color: rgb(90, 228, 90);
+}
+
+nav>button{
+    color:whitesmoke;
+    background: green;
+    font-weight: bold;
+    padding: 0.3em;
+    border-radius: 10px;
+}
+
+label#hburger{
+    display: none;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+
+}
+
+input{
+    display: none;
+}
+
+div.logo{
+    width: 40px;
+    height: 40px;
+
+}
+
+div.nom-resto{
+    color: rgb(78, 230, 78);
+    font-size: 20px;
+}
+
+@media  screen and (max-width:768px) {
+    div.slogan{
+        display:none;
+    }
+
+    nav>button{
+        display: none;
+    }
+
+    nav{
+        height: 100px;
+    }
+
+    nav>ul{
+        display: none;
+        flex-direction: column;
+        
+    }
+    nav>ul>li{
+        width: 100%;
+        margin: 5px 0;
+    }
+    nav>label#hburger{
+        display: block;
+        position: absolute;
+        right: 20px;
+
+    }
+
+    nav>input[type=checkbox]:checked ~ul{
+        display: block;
+    }
+}
+
+@media screen and (min-width:768px) and (max-width:992px){
+    div.nom-resto{
+        font-size: 14px;
+    }
+    div.slogan{
+        font-size: 10px;
+    }
+
+    div.logo{
+        text-align: center;
+        align-items: center;
+        height: auto;
+    }
+
+    div.logo>svg{
+        width: 1.5em;
+        height: 1.5em;
+    }
+    nav>ul>li>a{
+        font-size: 10px;
+    }
+    
+    nav>button{
+        padding: 0.15px;
+        font-size: 10px;
+    }
+
+    
+}
