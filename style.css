@@ -9,6 +9,7 @@ body{
     width:100vw;
     font-weight: bold;
     color: whitesmoke;
+    overflow-x: hidden;
 
 }
 
@@ -73,70 +74,8 @@ div.nom-resto{
     font-size: 20px;
 }
 
-@media  screen and (max-width:768px) {
-    div.slogan{
-        display:none;
-    }
 
-    nav>button{
-        display: none;
-    }
-
-    nav{
-        height: 100px;
-    }
-
-    nav>ul{
-        display: none;
-        flex-direction: column;
-        
-    }
-    nav>ul>li{
-        width: 100%;
-        margin: 5px 0;
-    }
-    nav>label#hburger{
-        display: block;
-        position: absolute;
-        right: 20px;
-
-    }
-
-    nav>input[type=checkbox]:checked ~ul{
-        display: block;
-    }
-}
-
-@media screen and (min-width:768px) and (max-width:992px){
-    div.nom-resto{
-        font-size: 14px;
-    }
-    div.slogan{
-        font-size: 10px;
-    }
-
-    div.logo{
-        text-align: center;
-        align-items: center;
-        height: auto;
-    }
-
-    div.logo>svg{
-        width: 1.5em;
-        height: 1.5em;
-    }
-    nav>ul>li>a{
-        font-size: 10px;
-    }
-    
-    nav>button{
-        padding: 0.15px;
-        font-size: 10px;
-    }
-
-    
-}
-
+/**************** partie header**********************/
 .hero-section{
     height: 98vh;
     display: flex;
@@ -217,4 +156,68 @@ justify-content: center;
         width: 100%;
         max-width: 300px;
     }
+}
+
+@media  screen and (max-width:768px) {
+    div.slogan{
+        display:none;
+    }
+
+    nav>button{
+        display: none;
+    }
+
+    nav{
+        height: 100px;
+    }
+
+    nav>ul{
+        display: none;
+        flex-direction: column;
+        
+    }
+    nav>ul>li{
+        width: 100%;
+        margin: 5px 0;
+    }
+    nav>label#hburger{
+        display: block;
+        position: absolute;
+        right: 20px;
+
+    }
+
+    nav>input[type=checkbox]:checked ~ul{
+        display: block;
+    }
+}
+
+@media screen and (min-width:768px) and (max-width:992px){
+    div.nom-resto{
+        font-size: 14px;
+    }
+    div.slogan{
+        font-size: 10px;
+    }
+
+    div.logo{
+        text-align: center;
+        align-items: center;
+        height: auto;
+    }
+
+    div.logo>svg{
+        width: 1.5em;
+        height: 1.5em;
+    }
+    nav>ul>li>a{
+        font-size: 10px;
+    }
+    
+    nav>button{
+        padding: 0.15px;
+        font-size: 10px;
+    }
+
+    
 }
