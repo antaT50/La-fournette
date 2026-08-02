@@ -1,41 +1,46 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>La Fournette</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet"> 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </head>
+
 <body>
-  
-<header>
-  <nav>
-    <div class="logo">
-      <svg xmlns="http://www.w3.org/2000/svg" width="2.5em" height="2.5em" viewBox="0 0 15 15">
-	      <path d="M0 0h15v15H0z" fill="none" />
-	      <path fill="#fff" d="M4.49 0c.86-.01 2.29 1.78 2.5 3.71c.2 1.93-1.76 2.74-1.74 3.41L5.5 14c.01.25-.07.56-.26.73c-.2.19-.45.28-.73.27a.95.95 0 0 1-.7-.27c-.19-.17-.32-.48-.31-.73l.26-6.88c.03-.78-1.91-1.79-1.75-3.42C2.19 2.07 3.63-.01 4.49 0m.12 1.19c.26 1.18.41 2.06.41 2.65s-.14 1.35-.4 2.27c.8-.37 1.19-1.13 1.19-2.27s-.4-2.02-1.2-2.65M9 0l-.51.01L8 5.5c.02.82 1.78 1.18 1.76 2L9.5 14a.957.957 0 0 0 .99 1a.973.973 0 0 0 1.01-1l-.26-6.5c-.03-.82 1.9-1.19 1.75-2L12.5 0l-.49-.01L11.75 4l-.76.5l-.25-4.49h-.49L10 4.5L9.25 4z" />
-      </svg>
-    </div>
-    <div class="nom-resto">
-      <p>La Fournette</p>
-    </div>
-    <div class="slogan">
-     <!-- <p>
-        On a le four vous avez la dalle !
-      </p>-->
-  </div>
-    <label for="burger" id="hburger">&#9776;</label>
-    <input type="checkbox" id="burger">
-    <ul>
-      <li><a href="">Accueil</a></li>
-      <li><a href="">Services</a></li>
-      <li><a href="">A Propos</a></li>
-      <li><a href="">Contact</a></li>
-    </ul>
-    <button>Commandez</button>
-  </nav>
+
+  <header>
+    <nav>
+      <div class="logo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="2.5em" height="2.5em" viewBox="0 0 15 15">
+          <path d="M0 0h15v15H0z" fill="none" />
+          <path fill="#fff"
+            d="M4.49 0c.86-.01 2.29 1.78 2.5 3.71c.2 1.93-1.76 2.74-1.74 3.41L5.5 14c.01.25-.07.56-.26.73c-.2.19-.45.28-.73.27a.95.95 0 0 1-.7-.27c-.19-.17-.32-.48-.31-.73l.26-6.88c.03-.78-1.91-1.79-1.75-3.42C2.19 2.07 3.63-.01 4.49 0m.12 1.19c.26 1.18.41 2.06.41 2.65s-.14 1.35-.4 2.27c.8-.37 1.19-1.13 1.19-2.27s-.4-2.02-1.2-2.65M9 0l-.51.01L8 5.5c.02.82 1.78 1.18 1.76 2L9.5 14a.957.957 0 0 0 .99 1a.973.973 0 0 0 1.01-1l-.26-6.5c-.03-.82 1.9-1.19 1.75-2L12.5 0l-.49-.01L11.75 4l-.76.5l-.25-4.49h-.49L10 4.5L9.25 4z" />
+        </svg>
+      </div>
+      <div class="nom-resto">
+        <p>La Fournette</p>
+      </div>
+      <div class="slogan">
+        <!-- <p>
+On a le four vous avez la dalle !
+</p>-->
+      </div>
+      <label for="burger" id="hburger">&#9776;</label>
+      <input type="checkbox" id="burger">
+      <ul>
+        <li><a href="">Accueil</a></li>
+        <li><a href="">Services</a></li>
+        <li><a href="">A Propos</a></li>
+        <li><a href="">Contact</a></li>
+      </ul>
+      <button>Commandez</button>
+    </nav>
   </header>
 
   <main>
@@ -50,6 +55,288 @@
         </div>
       </div>
     </section>
+    <section id="menu">
+      <div id="entrees" class="menu-category">
+        <h2>Entrées</h2>
+        <div class="item">
+          <figure class="fig-item">
+            <img class="img-fig" src="https://images.pexels.com/photos/32722820/pexels-photo-32722820.jpeg">
+          </figure>
+          <div class="nom-plats">
+            <h3>Brochettes de poulet grillé</h3>
+          </div>
+          <div class="description">
+            <p>Lorem ipsum dolor sit <br>
+              consectetur adipisicing elit. Ipsum eaque a,<br>
+              distinctio nam animi voluptatum eligendi repellat fugiat,<br>
+              eum facilis suscipit aliquam, ex nobis minus. Exercitationem <br>
+              animi nemo impedit minima.
+            </p>
+          </div>
+          <div class="prix">
+            <p>6 500 FCFA</p>
+          </div>
+          <div class="btn-commander">
+            <button>Commander</button>
+          </div>
+        </div>
+        <div class="item">
+          <figure class="fig-item">
+            <img class="img-fig" src="https://images.pexels.com/photos/29037270/pexels-photo-29037270.jpeg">
+          </figure>
+          <div class="nom-plats">
+            <h3>Samoussas au poulet</h3>
+          </div>
+          <div class="description">
+            <p>Lorem ipsum dolor sit <br>
+              consectetur adipisicing elit. Ipsum eaque a,<br>
+              distinctio nam animi voluptatum eligendi repellat fugiat,<br>
+              eum facilis suscipit aliquam, ex nobis minus. Exercitationem <br>
+              animi nemo impedit minima.
+            </p>
+          </div>
+          <div class="prix">
+            <p>5 500 FCFA</p>
+          </div>
+          <div class="btn-commander">
+            <button>Commander</button>
+          </div>
+        </div>
+        <div class="item">
+          <figure class="fig-item">
+            <img class="img-fig" src="https://images.pexels.com/photos/19659636/pexels-photo-19659636.jpeg">
+          </figure>
+          <div class="nom-plats">
+            <h3>Mini boulettes de viande</h3>
+          </div>
+          <div class="description">
+            <p>Lorem ipsum dolor sit <br>
+              consectetur adipisicing elit. Ipsum eaque a,<br>
+              distinctio nam animi voluptatum eligendi repellat fugiat,<br>
+              eum facilis suscipit aliquam, ex nobis minus. Exercitationem <br>
+              animi nemo impedit minima.
+            </p>
+          </div>
+          <div class="prix">
+            <p>4 500 FCFA</p>
+          </div>
+          <div class="btn-commander">
+            <button>Commander</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="Plats-principaux" class="menu-category">
+        <h2>Plats principaux</h2>
+        <div class="item">
+          <figure class="fig-item">
+            <img class="img-fig" src="https://images.pexels.com/photos/14930621/pexels-photo-14930621.jpeg">
+          </figure>
+          <div class="nom-plats">
+            <h3>Tacos de poulet épicé</h3>
+          </div>
+          <div class="description">
+            <p>Lorem ipsum dolor sit <br>
+              consectetur adipisicing elit. Ipsum eaque a,<br>
+              distinctio nam animi voluptatum eligendi repellat fugiat,<br>
+              eum facilis suscipit aliquam, ex nobis minus. Exercitationem <br>
+              animi nemo impedit minima.
+            </p>
+          </div>
+          <div class="prix">
+            <p>7 000 FCFA</p>
+          </div>
+          <div class="btn-commander">
+            <button>Commander</button>
+          </div>
+        </div>
+        <div class="item">
+          <figure class="fig-item">
+            <img class="img-fig" src="https://images.pexels.com/photos/17649373/pexels-photo-17649373.jpeg">
+          </figure>
+          <div class="nom-plats">
+            <h3>Poisson grillé avec riz</h3>
+          </div>
+          <div class="description">
+            <p>Lorem ipsum dolor sit <br>
+              consectetur adipisicing elit. Ipsum eaque a,<br>
+              distinctio nam animi voluptatum eligendi repellat fugiat,<br>
+              eum facilis suscipit aliquam, ex nobis minus. Exercitationem <br>
+              animi nemo impedit minima.
+            </p>
+          </div>
+          <div class="prix">
+            <p>6 000 FCFA</p>
+          </div>
+          <div class="btn-commander">
+            <button>Commander</button>
+          </div>
+        </div>
+        <div class="item">
+          <figure class="fig-item">
+            <img class="img-fig" src="https://images.pexels.com/photos/30635676/pexels-photo-30635676.jpeg">
+          </figure>
+          <div class="nom-plats">
+            <h3>Ragoût traditionnel africain</h3>
+          </div>
+          <div class="description">
+            <p>Lorem ipsum dolor sit <br>
+              consectetur adipisicing elit. Ipsum eaque a,<br>
+              distinctio nam animi voluptatum eligendi repellat fugiat,<br>
+              eum facilis suscipit aliquam, ex nobis minus. Exercitationem <br>
+              animi nemo impedit minima.
+            </p>
+          </div>
+          <div class="prix">
+            <p>6 500 FCFA</p>
+          </div>
+          <div class="btn-commander">
+            <button>Commander</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="Desserts" class="menu-category">
+        <h2>Desserts</h2>
+        <div class="item">
+          <figure class="fig-item">
+            <img class="img-fig" src="https://images.pexels.com/photos/13915068/pexels-photo-13915068.jpeg">
+          </figure>
+          <div class="nom-plats">
+            <h3>Beignet au miel</h3>
+          </div>
+          <div class="description">
+            <p>Lorem ipsum dolor sit <br>
+              consectetur adipisicing elit. Ipsum eaque a,<br>
+              distinctio nam animi voluptatum eligendi repellat fugiat,<br>
+              eum facilis suscipit aliquam, ex nobis minus. Exercitationem <br>
+              animi nemo impedit minima.
+            </p>
+          </div>
+          <div class="prix">
+            <p>2 500 FCFA</p>
+          </div>
+          <div class="btn-commander">
+            <button>Commander</button>
+          </div>
+        </div>
+        <div class="item">
+          <figure class="fig-item">
+            <img class="img-fig" src="https://images.pexels.com/photos/33183922/pexels-photo-33183922.jpeg">
+          </figure>
+          <div class="nom-plats">
+            <h3>Gâteau au coco </h3>
+          </div>
+          <div class="description">
+            <p>Lorem ipsum dolor sit <br>
+              consectetur adipisicing elit. Ipsum eaque a,<br>
+              distinctio nam animi voluptatum eligendi repellat fugiat,<br>
+              eum facilis suscipit aliquam, ex nobis minus. Exercitationem <br>
+              animi nemo impedit minima.
+            </p>
+          </div>
+          <div class="prix">
+            <p>3 000 FCFA</p>
+          </div>
+          <div class="btn-commander">
+            <button>Commander</button>
+          </div>
+        </div>
+        <div class="item">
+          <figure class="fig-item">
+            <img class="img-fig" src="https://images.pexels.com/photos/34474034/pexels-photo-34474034.jpeg">
+          </figure>
+          <div class="nom-plats">
+            <h3>Flan traditionnel</h3>
+          </div>
+          <div class="description">
+            <p>Lorem ipsum dolor sit <br>
+              consectetur adipisicing elit. Ipsum eaque a,<br>
+              distinctio nam animi voluptatum eligendi repellat fugiat,<br>
+              eum facilis suscipit aliquam, ex nobis minus. Exercitationem <br>
+              animi nemo impedit minima.
+            </p>
+          </div>
+          <div class="prix">
+            <p>2 000 FCFA</p>
+          </div>
+          <div class="btn-commander">
+            <button>Commander</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="Boissons" class="menu-category">
+        <h2>Boissons</h2>
+        <div class="item">
+          <figure class="fig-item">
+            <img class="img-fig" src="https://images.pexels.com/photos/34467118/pexels-photo-34467118.jpeg">
+          </figure>
+          <div class="nom-plats">
+            <h3>Jus de bissap</h3>
+          </div>
+          <div class="description">
+            <p>Lorem ipsum dolor sit <br>
+              consectetur adipisicing elit. Ipsum eaque a,<br>
+              distinctio nam animi voluptatum eligendi repellat fugiat,<br>
+              eum facilis suscipit aliquam, ex nobis minus. Exercitationem <br>
+              animi nemo impedit minima.
+            </p>
+          </div>
+          <div class="prix">
+            <p>1 500 FCFA</p>
+          </div>
+          <div class="btn-commander">
+            <button>Commander</button>
+          </div>
+        </div>
+        <div class="item">
+          <figure class="fig-item">
+            <img class="img-fig" src="https://images.pexels.com/photos/37170180/pexels-photo-37170180.jpeg">
+          </figure>
+          <div class="nom-plats">
+            <h3>Jus de Zaban</h3>
+          </div>
+          <div class="description">
+            <p>Lorem ipsum dolor sit <br>
+              consectetur adipisicing elit. Ipsum eaque a,<br>
+              distinctio nam animi voluptatum eligendi repellat fugiat,<br>
+              eum facilis suscipit aliquam, ex nobis minus. Exercitationem <br>
+              animi nemo impedit minima.
+            </p>
+          </div>
+          <div class="prix">
+            <p>1 000 FCFA</p>
+          </div>
+          <div class="btn-commander">
+            <button>Commander</button>
+          </div>
+        </div>
+        <div class="item">
+          <figure class="fig-item">
+            <img class="img-fig" src="https://images.pexels.com/photos/4728231/pexels-photo-4728231.png">
+          </figure>
+          <div class="nom-plats">
+            <h3>Thé glacé</h3>
+          </div>
+          <div class="description">
+            <p>Lorem ipsum dolor sit <br>
+              consectetur adipisicing elit. Ipsum eaque a,<br>
+              distinctio nam animi voluptatum eligendi repellat fugiat,<br>
+              eum facilis suscipit aliquam, ex nobis minus. Exercitationem <br>
+              animi nemo impedit minima.
+            </p>
+          </div>
+          <div class="prix">
+            <p>500 FCFA</p>
+          </div>
+          <div class="btn-commander">
+            <button>Commander</button>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 </body>
+
 </html>
