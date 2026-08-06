@@ -222,7 +222,27 @@ justify-content: center;
     
 }
   
+#menu{
+    width: 100%;
+    padding: 20px;
+}
 
+.menu-category{
+    /*display:flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 50px 0;
+    gap: 20px;*/ /*autre facçon de disposer les elements avec grid*/
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#menu h2{
+    text-align: center;
+    color:#0066ff;
+    margin: 15px 0;
+}
 
 
 
@@ -231,15 +251,19 @@ justify-content: center;
   border-radius: 15px;
   padding: 15px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
-  margin-bottom: 20px;
-  position: relative; 
+  margin-bottom: 20px; 
   padding-bottom: 50px; 
+  display: flex;
+  flex-direction: column;
+  border: 2px solid green;
+  box-shadow: 5px 5px 1px blue;
+  width: 90%;
 }
 
 
 figure.fig-item {
   width: 100%;
-  height: 160px;
+  height: 200px;
   border-radius: 10px;
   overflow: hidden;
   margin-bottom: 12px;
@@ -248,7 +272,7 @@ figure.fig-item {
 figure > img.img-fig {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  
 }
 
 
@@ -268,11 +292,9 @@ figure > img.img-fig {
 }
 
 
-.prix {
-  position: absolute;
-  bottom: 15px;
-  left: 15px;
-}
+/*.prix {
+
+}*/
 
 .prix p {
   color: #0066ff;
@@ -282,11 +304,6 @@ figure > img.img-fig {
 }
 
 
-.btn-commander {
-  position: absolute;
-  bottom: 12px;
-  right: 15px;
-}
 
 .btn-commander button {
   background: green;
@@ -298,6 +315,7 @@ figure > img.img-fig {
   cursor: pointer;
   font-size: 0.85rem;
   transition: background 0.3s ease;
+  margin: 20px 0 0 0;
 }
 
 .btn-commander button:hover {
