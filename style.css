@@ -232,7 +232,8 @@ justify-content: center;
     justify-content: space-around;
     align-items: center;
     margin: 50px 0;
-    gap: 20px;*/ /*autre facçon de disposer les elements avec grid*/
+    gap: 20px;*/ 
+    /*autre facçon de disposer les elements avec grid*/
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -323,6 +324,18 @@ figure > img.img-fig {
   color: #1a1a1a;
 }
 
+@media screen and (max-width: 768px) {
+    .menu-category {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen  and (min-width: 769px) and (max-width: 992px) {
+    .menu-category {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+}
 
 
 
