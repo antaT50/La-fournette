@@ -36,8 +36,11 @@ On a le four vous avez la dalle !
       <input type="checkbox" id="burger">
       <ul>
         <li><a href="">Accueil</a></li>
-        <li><a href="">Services</a></li>
-        <li><a href="">A Propos</a></li>
+        <li><a href="#menu">Notre Menu</a></li>
+        <li><a href="">Offres Spéciales</a></li>
+        <li><a href="">Réservation</a></li>
+        <li><a href="">Galerie</a></li>
+        <li><a href="">Témoignages Clients</a></li>
         <li><a href="">Contact</a></li>
       </ul>
       <button href="#menu">Commandez</button>
@@ -57,6 +60,9 @@ On a le four vous avez la dalle !
       </div>
     </section>
     <section id="menu">
+      <div class="btn-phares-p">
+        <button data-popup="popup-entrees">Menus spéciales entrées</button>
+      </div>
       <h2>Entrées</h2>
       <div id="entrees" class="menu-category">
         <div class="item">
@@ -127,6 +133,9 @@ On a le four vous avez la dalle !
         </div>
       </div>
 
+      <div class="btn-phares-p">
+        <button data-popup="popup-plats">Plats principaux phares</button>
+      </div>
       <h2>Plats principaux</h2>
       <div id="Plats-principaux" class="menu-category">
         <div class="item">
@@ -197,6 +206,9 @@ On a le four vous avez la dalle !
         </div>
       </div>
 
+      <div class="btn-phares-p">
+        <button data-popup="popup-desserts">Spécial desserts</button>
+      </div>
       <h2>Desserts</h2>
       <div id="Desserts" class="menu-category">
         <div class="item">
@@ -267,6 +279,9 @@ On a le four vous avez la dalle !
         </div>
       </div>
 
+      <div class="btn-phares-p">
+        <button data-popup="popup-boissons">Spéciales boissons</button>
+      </div>
       <h2>Boissons</h2>
       <div id="Boissons" class="menu-category">
         <div class="item">
@@ -337,6 +352,147 @@ On a le four vous avez la dalle !
         </div>
       </div>
     </section>
+
+    <!--Partie pour la fenêtre popup-->
+
+<!-- Partie pour les fenêtres popup -->
+
+    <!-- POPUP 1 : ENTRÉES -->
+    <div id="popup-entrees" class="popup-overlay">
+      <div class="popup-content">
+        <span class="close-popup">&times;</span>
+        <h2>Entrées Phares</h2>
+        <div class="popup-grid">
+          <div class="popup-item">
+            <img src="https://images.pexels.com/photos/32722820/pexels-photo-32722820.jpeg" alt="Entrée 1">
+            <div class="popup-info">
+              <h3>Brochettes Spéciales</h3>
+              <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <p class="prix">6 500 FCFA</p>
+            </div>
+          </div>
+          <div class="popup-item">
+            <img src="https://images.pexels.com/photos/29037270/pexels-photo-29037270.jpeg" alt="Entrée 2">
+            <div class="popup-info">
+              <h3>Samoussas VIP</h3>
+              <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <p class="prix">5 500 FCFA</p>
+            </div>
+          </div>
+          <div class="popup-item">
+            <img src="https://images.pexels.com/photos/19659636/pexels-photo-19659636.jpeg" alt="Entrée 3">
+            <div class="popup-info">
+              <h3>Boulettes Royale</h3>
+              <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <p class="prix">4 500 FCFA</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- POPUP 2 : PLATS PRINCIPAUX -->
+    <div id="popup-plats" class="popup-overlay">
+      <div class="popup-content">
+        <span class="close-popup">&times;</span>
+        <h2>Plats Principaux Phares</h2>
+        <div class="popup-grid">
+          <div class="popup-item">
+            <img src="https://images.pexels.com/photos/14930621/pexels-photo-14930621.jpeg" alt="Plat 1">
+            <div class="popup-info">
+              <h3>Tacos XL Épicé</h3>
+              <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <p class="prix">7 000 FCFA</p>
+            </div>
+          </div>
+          <div class="popup-item">
+            <img src="https://images.pexels.com/photos/17649373/pexels-photo-17649373.jpeg" alt="Plat 2">
+            <div class="popup-info">
+              <h3>Poisson Chef Grillé</h3>
+              <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <p class="prix">6 000 FCFA</p>
+            </div>
+          </div>
+          <div class="popup-item">
+            <img src="https://images.pexels.com/photos/30635676/pexels-photo-30635676.jpeg" alt="Plat 3">
+            <div class="popup-info">
+              <h3>Ragoût Prestige</h3>
+              <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <p class="prix">6 500 FCFA</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- POPUP 3 : DESSERTS -->
+    <div id="popup-desserts" class="popup-overlay">
+      <div class="popup-content">
+        <span class="close-popup">&times;</span>
+        <h2>Spécial Desserts</h2>
+        <div class="popup-grid">
+          <div class="popup-item">
+            <img src="https://images.pexels.com/photos/13915068/pexels-photo-13915068.jpeg" alt="Dessert 1">
+            <div class="popup-info">
+              <h3>Beignet au Miel Suprême</h3>
+              <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <p class="prix">2 500 FCFA</p>
+            </div>
+          </div>
+          <div class="popup-item">
+            <img src="https://images.pexels.com/photos/33183922/pexels-photo-33183922.jpeg" alt="Dessert 2">
+            <div class="popup-info">
+              <h3>Gâteau Coco Délice</h3>
+              <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <p class="prix">3 000 FCFA</p>
+            </div>
+          </div>
+          <div class="popup-item">
+            <img src="https://images.pexels.com/photos/34474034/pexels-photo-34474034.jpeg" alt="Dessert 3">
+            <div class="popup-info">
+              <h3>Flan Maison Gourmand</h3>
+              <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <p class="prix">2 000 FCFA</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- POPUP 4 : BOISSONS -->
+    <div id="popup-boissons" class="popup-overlay">
+      <div class="popup-content">
+        <span class="close-popup">&times;</span>
+        <h2>Spécial Boissons</h2>
+        <div class="popup-grid">
+          <div class="popup-item">
+            <img src="https://images.pexels.com/photos/34467118/pexels-photo-34467118.jpeg" alt="Boisson 1">
+            <div class="popup-info">
+              <h3>Jus de Bissap Glacé</h3>
+              <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <p class="prix">1 500 FCFA</p>
+            </div>
+          </div>
+          <div class="popup-item">
+            <img src="https://images.pexels.com/photos/37170180/pexels-photo-37170180.jpeg" alt="Boisson 2">
+            <div class="popup-info">
+              <h3>Jus de Zaban Frais</h3>
+              <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <p class="prix">1 000 FCFA</p>
+            </div>
+          </div>
+          <div class="popup-item">
+            <img src="https://images.pexels.com/photos/4728231/pexels-photo-4728231.png" alt="Boisson 3">
+            <div class="popup-info">
+              <h3>Thé Glacé Maison</h3>
+              <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <p class="prix">500 FCFA</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
   </main>
 
 
