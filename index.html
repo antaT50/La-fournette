@@ -492,6 +492,80 @@ On a le four vous avez la dalle !
         </div>
       </div>
     </div>
+
+    <!--Partie Réservation et Commande-->
+
+<section id="Reservation-Commande">
+  <h2>Réservation et Commande</h2>
+
+      <form id="resercom">
+        <!-- Nom et Prénom -->
+        <label for="name">Nom et Prénom :</label>
+        <input type="text" id="name" name="name" placeholder="Votre nom complet" required>
+
+        <!-- Email -->
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+
+        <!-- Téléphone -->
+        <label for="phone">Téléphone :</label>
+        <input type="tel" id="phone" name="phone" placeholder="Votre numéro" required>
+
+        <!-- Choix du plat -->
+        <label for="Nmenu">Choisir un menu / plat :</label>
+        <select name="Menu" id="Nmenu">
+          <option value="" disabled selected>Sélectionnez un plat </option>
+          <optgroup label="Entrées">
+            <option value="Brochettes de poulet grillé">Brochettes de poulet grillé</option>
+            <option value="Samoussas au poulet">Samoussas au poulet</option>
+            <option value="Mini boulettes de viande">Mini boulettes de viande</option>
+          </optgroup>
+          <optgroup label="Plats principaux">
+            <option value="Tacos de poulet épicé">Tacos de poulet épicé</option>
+            <option value="Poisson grillé avec riz">Poisson grillé avec riz</option>
+            <option value="Ragoût traditionnel africain">Ragoût traditionnel africain</option>
+          </optgroup>
+          <optgroup label="Desserts">
+            <option value="Beignet au miel">Beignet au miel</option>
+            <option value="Gâteau au coco">Gâteau au coco</option>
+            <option value="Flan traditionnel">Flan traditionnel</option>
+          </optgroup>
+          <optgroup label="Boissons">
+            <option value="Jus de bissap">Jus de bissap</option>
+            <option value="Jus de Zaban">Jus de Zaban</option>
+            <option value="Thé glacé">Thé glacé</option>
+          </optgroup>
+        </select>
+
+        <!-- Quantité accordée avec le plat -->
+        <label for="quantity">Quantité pour ce plat :</label>
+        <input type="number" id="quantity" name="quantity" min="1" max="20" value="1" required>
+
+        <!-- Date -->
+        <label for="date">Date :</label>
+        <input type="date" id="date" name="date" required>
+
+        <!-- Heure -->
+        <label for="time">Heure :</label>
+        <input type="time" id="time" name="time" required>
+
+        <!-- Nombre de personnes -->
+        <label for="guests">Nombre de personnes (si réservation) :</label>
+        <input type="number" id="guests" name="guests" min="1" max="8" value="1"> 
+
+        <!-- Demandes spéciales -->
+        <label for="orderDetails">Commentaires ou demandes spéciales :</label>
+        <textarea id="orderDetails" name="orderDetails" rows="4" placeholder="Allergies, table au calme... "  maxlength="200"></textarea> <br><br><br>
+
+        <!-- Les 3 boutons de choix -->
+        <div class="boutons-groupe">
+          <button type="submit" class="btn-reserver">Réserver</button>
+          <button type="submit" class="btn-commander">Commander</button>
+          <button type="reset" class="btn-annuler">Annuler</button>
+        </div>
+
+      </form>
+</section>
     
   </main>
 
