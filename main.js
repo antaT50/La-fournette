@@ -55,3 +55,52 @@ let closeBoissons = document.querySelector("#popup-boissons .close-popup");
 closeBoissons.addEventListener("click", function() {
     popupBoissons.classList.remove("active");
 });
+
+/**********************Validation de formulaire */
+
+const validationForm = document.querySelectorAll(".send-f");
+
+const inputRequiredForm = {
+    name: document.getElementById("name"),
+    email: document.getElementById("email"),
+    phone: document.getElementById("phone"),
+    menu: document.getElementById("Nmenu"),
+    quantity: document.getElementById("quantity"),
+    date: document.getElementById("date"),
+    time: document.getElementById("time"),
+    guests: document.getElementById("guests"),
+    orderDetails: document.getElementById("orderDetails")
+};
+
+const regexNom = /^[A-Za-zÀ-ÿ\s'-]+$/;
+const regexEmail = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+$/;
+const regexTel = /^\d{8}$/;
+
+for (let i = 0; i < validationForm.length; i++) {
+  validationForm[i].addEventListener("click", validityForm);
+}
+function validityForm(e) {
+ let champVide =
+  inputRequiredForm.name.value.trim() === "" ||
+  inputRequiredForm.email.value.trim() === "" ||
+  inputRequiredForm.phone.value.trim() === "" ||
+  inputRequiredForm.menu.value.trim() === "" ||
+  inputRequiredForm.quantity.value.trim() === "" ||
+  inputRequiredForm.date.value.trim() === "" ||
+  inputRequiredForm.time.value.trim() === "" ||
+  inputRequiredForm.guests.value.trim() === "";
+
+  if (champVide) {
+    e.preventDefault();
+    alert("Veuillez remplir tous les champs.");
+  }
+  else if ((!regexNom.test(inputRequiredForm.name.value.trim()))
+    ||(!regexEmail.test(inputRequiredForm.email.value.trim()))
+||(!regexTel.test(inputRequiredForm.phone.value.trim()) ) ){
+    e.preventDefault();
+    alert("Format incorrect. Veuillez entrer un champ valide.");
+  }
+  else{
+    
+}
+}

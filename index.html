@@ -498,22 +498,22 @@ On a le four vous avez la dalle !
 <section id="Reservation-Commande">
   <h2>Réservation et Commande</h2>
 
-      <form id="resercom">
+      <form id="resercom" action="process_form.php" method="POST">
         <!-- Nom et Prénom -->
         <label for="name">Nom et Prénom :</label>
-        <input type="text" id="name" name="name" placeholder="Votre nom complet" required>
+        <input type="text" id="name" name="name" placeholder="Votre nom complet"  maxlength="20" minlength="4">
 
         <!-- Email -->
         <label for="email">Email :</label>
-        <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+        <input type="email" id="email" name="email" placeholder="votre@email.com" >
 
         <!-- Téléphone -->
         <label for="phone">Téléphone :</label>
-        <input type="tel" id="phone" name="phone" placeholder="Votre numéro" required>
+        <input type="tel" id="phone" name="phone" placeholder="Votre numéro">
 
         <!-- Choix du plat -->
         <label for="Nmenu">Choisir un menu / plat :</label>
-        <select name="Menu" id="Nmenu">
+        <select name="Menu" id="Nmenu" required>
           <option value="" disabled selected>Sélectionnez un plat </option>
           <optgroup label="Entrées">
             <option value="Brochettes de poulet grillé">Brochettes de poulet grillé</option>
@@ -551,7 +551,7 @@ On a le four vous avez la dalle !
 
         <!-- Nombre de personnes -->
         <label for="guests">Nombre de personnes (si réservation) :</label>
-        <input type="number" id="guests" name="guests" min="1" max="8" value="1"> 
+        <input type="number" id="guests" name="guests" min="1" max="8" value="1" required>
 
         <!-- Demandes spéciales -->
         <label for="orderDetails">Commentaires ou demandes spéciales :</label>
@@ -559,8 +559,8 @@ On a le four vous avez la dalle !
 
         <!-- Les 3 boutons de choix -->
         <div class="boutons-groupe">
-          <button type="submit" class="btn-reserver">Réserver</button>
-          <button type="submit" class="btn-commander">Commander</button>
+          <button type="submit" class="btn-reserver send-f">Réserver</button>
+          <button type="submit" class="btn-commander send-f">Commander</button>
           <button type="reset" class="btn-annuler">Annuler</button>
         </div>
 
