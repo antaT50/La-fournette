@@ -80,27 +80,105 @@ for (let i = 0; i < validationForm.length; i++) {
   validationForm[i].addEventListener("click", validityForm);
 }
 function validityForm(e) {
- let champVide =
-  inputRequiredForm.name.value.trim() === "" ||
-  inputRequiredForm.email.value.trim() === "" ||
-  inputRequiredForm.phone.value.trim() === "" ||
-  inputRequiredForm.menu.value.trim() === "" ||
-  inputRequiredForm.quantity.value.trim() === "" ||
-  inputRequiredForm.date.value.trim() === "" ||
-  inputRequiredForm.time.value.trim() === "" ||
-  inputRequiredForm.guests.value.trim() === "";
+  let valid = true;
 
-  if (champVide) {
-    e.preventDefault();
-    alert("Veuillez remplir tous les champs.");
+  const errorName = document.getElementById("nameError");
+  const errorEmail = document.getElementById("emailError");
+  const errorPhone = document.getElementById("phoneError");
+  const errorMenu = document.getElementById("menuError");
+  const errorQuantity = document.getElementById("quantityError");
+  const errorDate = document.getElementById("dateError");
+  const errorTime = document.getElementById("timeError");
+  const errorGuests = document.getElementById("guestsError");
+
+  if (inputRequiredForm.name.value.trim() === "") {
+    errorName.textContent = "Le nom est obligatoire.";
+    errorName.style.color = "#ffcc00";
+    errorName.style.fontWeight = "bold";
+    valid = false;
+  } else if (!regexNom.test(inputRequiredForm.name.value.trim())) {
+    errorName.textContent = "Le nom ne doit contenir que des lettres.";
+    errorName.style.color = "#ffcc00";
+    errorName.style.fontWeight = "bold";
+    valid = false;
+  } else {
+    errorName.textContent = "";
   }
-  else if ((!regexNom.test(inputRequiredForm.name.value.trim()))
-    ||(!regexEmail.test(inputRequiredForm.email.value.trim()))
-||(!regexTel.test(inputRequiredForm.phone.value.trim()) ) ){
-    e.preventDefault();
-    alert("Format incorrect. Veuillez entrer un champ valide.");
+
+  if (inputRequiredForm.email.value.trim() === "") {
+    errorEmail.textContent = "L'email est obligatoire.";
+    errorEmail.style.color = "#ffcc00";
+    errorEmail.style.fontWeight = "bold";
+    valid = false;
+  } else if (!regexEmail.test(inputRequiredForm.email.value.trim())) {
+    errorEmail.textContent = "L'email est invalide.";
+    errorEmail.style.color = "#ffcc00";
+    errorEmail.style.fontWeight = "bold";
+    valid = false;
+  } else {
+    errorEmail.textContent = "";
   }
-  else{
-    
-}
+
+  if (inputRequiredForm.phone.value.trim() === "") {
+    errorPhone.textContent = "Le téléphone est obligatoire.";
+    errorPhone.style.color = "#ffcc00";
+    errorPhone.style.fontWeight = "bold";
+    valid = false;
+  } else if (!regexTel.test(inputRequiredForm.phone.value.trim())) {
+    errorPhone.textContent = "Le téléphone doit contenir 8 chiffres.";
+    errorPhone.style.color = "#ffcc00";
+    errorPhone.style.fontWeight = "bold";
+    valid = false;
+  } else {
+    errorPhone.textContent = "";
+  }
+
+  if (inputRequiredForm.menu.value.trim() === "") {
+    errorMenu.textContent = "Veuillez choisir un menu ou un plat.";
+    errorMenu.style.color = "#ffcc00";
+    errorMenu.style.fontWeight = "bold";
+    valid = false;
+  } else {
+    errorMenu.textContent = "";
+  }
+
+  if (inputRequiredForm.quantity.value.trim() === "") {
+    errorQuantity.textContent = "La quantité est obligatoire.";
+    errorQuantity.style.color = "#ffcc00";
+    errorQuantity.style.fontWeight = "bold";
+    valid = false;
+  } else {
+    errorQuantity.textContent = "";
+  }
+
+  if (inputRequiredForm.date.value.trim() === "") {
+    errorDate.textContent = "La date est obligatoire.";
+    errorDate.style.color = "#ffcc00";
+    errorDate.style.fontWeight = "bold";
+    valid = false;
+  } else {
+    errorDate.textContent = "";
+  }
+
+  if (inputRequiredForm.time.value.trim() === "") {
+    errorTime.textContent = "L'heure est obligatoire.";
+    errorTime.style.color = "#ffcc00";
+    errorTime.style.fontWeight = "bold";
+    valid = false;
+  } else {
+    errorTime.textContent = "";
+  }
+
+  if (inputRequiredForm.guests.value.trim() === "") {
+    errorGuests.textContent = "Le nombre de personnes est obligatoire.";
+    errorGuests.style.color = "#ffcc00";
+    errorGuests.style.fontWeight = "bold";
+    valid = false;
+  } else {
+    errorGuests.textContent = "";
+  }
+
+  if (valid === false) {
+    e.preventDefault();
+  }
 }

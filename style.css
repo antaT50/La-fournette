@@ -380,6 +380,7 @@ figure > img.img-fig {
   justify-content: center;
   align-items: center;
   z-index: 2000;
+  padding: 20px;
 }
 
 .popup-overlay.active {
@@ -392,8 +393,24 @@ figure > img.img-fig {
   padding: 20px;
   border-radius: 10px;
   position: relative;
-  max-width: 500px;
-  width: 90%;
+  max-width: 1100px;
+  width: min(1100px, 92vw);
+  max-height: 80vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.popup-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+}
+
+.popup-grid .item {
+  width: 100%;
+  margin-bottom: 0;
+  padding-bottom: 30px;
 }
 
 .popup-item {
@@ -439,6 +456,24 @@ figure > img.img-fig {
   color: red;
 }
 
+@media screen and (max-width: 768px) {
+    .popup-content {
+        width: 94vw;
+        max-height: 85vh;
+        padding: 18px 12px 12px;
+    }
+
+    .popup-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 992px) {
+    .popup-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
 /**********Partie Réservation***************/
 
 #Reservation-Commande{
@@ -452,18 +487,27 @@ figure > img.img-fig {
     padding: 20px 0;
 }
 form#resercom{
-    display: grid;
-    grid-template-columns: 1fr 2fr ;
-    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
     padding: 20px;
+
 }
 
 form#resercom input, form#resercom select, form#resercom textarea{
     padding: 10px;
     border-radius: 5px;
     border: 2px solid greenyellow;
-    width: 80%;
-    margin:5px 0;
+    width: 60%;
+    margin:40px 0;
+}
+
+form#resercom textarea{
+    margin:40px 0 0 0  ;
+}
+
+form#resercom label{
+    margin: 20px;
 }
 
 form#resercom div.boutons-groupe{
@@ -488,15 +532,56 @@ form#resercom div.boutons-groupe button:hover{
     color: #1a1a1a;
 }
 
+div.champ-group{
+    width: 90%;
+    position: relative;
+}
+
+span.requis{
+    position: absolute;
+    top: 0%;
+    right: 5%;
+    color: red;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+span.icon-lab svg{
+    width: 20px;
+    height: 20px;
+}
+
 @media  screen and (max-width:768px) {
-    form#resercom{
-        grid-template-columns: 1fr;
+    form#resercom .champ-group{
+        display: flex;
+        flex-direction: column;
     }
+    form#resercom input, form#resercom select, form#resercom textarea{
+        width: 80%;
+    }
+
+    span.requis{
+        top:25%;
+
+}
 }
 
 @media  screen and (min-width:769px) and (max-width:992px) {
-    form#resercom{
-        grid-template-columns: 1fr;
+    form#resercom .champ-group{
+        display: flex;
+        flex-direction: column;
+        
     }
+
+
+    form#resercom input, form#resercom select, form#resercom textarea{
+        width: 62%;
 }
+
+}
+
+
+
+
+
 
