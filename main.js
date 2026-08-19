@@ -182,3 +182,46 @@ function validityForm(e) {
     e.preventDefault();
   }
 }
+
+/*****section témoignages */
+
+/*  1 : Sélection des éléments HTML */
+let slides = document.querySelectorAll("#temoignages .slide");
+let btnSuiv = document.querySelector(".suiv");
+let btnPrec = document.querySelector(".prec");
+let index = 0;
+
+/* 2 : Fonction pour afficher la carte active */
+function afficherSlide(n) {
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].classList.remove("active");
+    }
+    slides[n].classList.add("active");
+}
+
+/* 3 : Clic sur le bouton Suivant */
+btnSuiv.addEventListener("click", function() {
+    index = index + 1;
+    if (index >= slides.length) {
+        index = 0;
+    }
+    afficherSlide(index);
+});
+
+/*  4 : Clic sur le bouton Précédent */
+btnPrec.addEventListener("click", function() {
+    index = index - 1;
+    if (index < 0) {
+        index = slides.length - 1;
+    }
+    afficherSlide(index);
+});
+
+/* 5 : Defilement automatique toutes les 4 secondes */
+setInterval(function() {
+    index = index + 1;
+    if (index >= slides.length) {
+        index = 0;
+    }
+    afficherSlide(index);
+}, 4000);
