@@ -1,7 +1,19 @@
 let btnOrder = document.querySelector(".btn-order");
+let btnReserve=document.querySelector(".btn-reserve");
+let btnContactHero=document.querySelector(".btn-contact");
 btnOrder.addEventListener("click", function() {
-    document.getElementById("menu").scrollIntoView({behavior: "smooth"});
+    document.getElementById("menu").scrollIntoView({behavior:"instant"});
 });
+
+btnReserve.addEventListener("click", function() {
+    document.getElementById("Reservation-Commande").scrollIntoView({behavior: "instant"});
+});
+
+btnContactHero.addEventListener("click", function() {
+    document.getElementById("contact").scrollIntoView({behavior: "instant"});
+});
+
+
 let btnEntrees = document.querySelector('[data-popup="popup-entrees"]');
 let popupEntrees = document.querySelector("#popup-entrees");
 
@@ -225,3 +237,70 @@ setInterval(function() {
     }
     afficherSlide(index);
 }, 4000);
+
+
+/********************** Validation du formulaire de contact */
+
+const btnContact = document.querySelector(".send-contact");
+
+const inputContactForm = {
+    name: document.getElementById("contact-name"),
+    email: document.getElementById("contact-email"),
+    message: document.getElementById("contact-message")
+};
+
+if (btnContact) {
+    btnContact.addEventListener("click", validityContactForm);
+}
+
+function validityContactForm(e) {
+    let valid = true;
+
+    const errorContactName = document.getElementById("contactNameError");
+    const errorContactEmail = document.getElementById("contactEmailError");
+    const errorContactMessage = document.getElementById("contactMessageError");
+
+    /* Vérification du Nom */
+    if (inputContactForm.name.value.trim() === "") {
+        errorContactName.textContent = "Le nom est obligatoire.";
+        errorContactName.style.color = "#ffcc00";
+        errorContactName.style.fontWeight = "bold";
+        valid = false;
+    } else if (!regexNom.test(inputContactForm.name.value.trim())) {
+        errorContactName.textContent = "Le nom ne doit contenir que des lettres.";
+        errorContactName.style.color = "#ffcc00";
+        errorContactName.style.fontWeight = "bold";
+        valid = false;
+    } else {
+        errorContactName.textContent = "";
+    }
+
+    /* Vérification de l'Email */
+    if (inputContactForm.email.value.trim() === "") {
+        errorContactEmail.textContent = "L'email est obligatoire.";
+        errorContactEmail.style.color = "#ffcc00";
+        errorContactEmail.style.fontWeight = "bold";
+        valid = false;
+    } else if (!regexEmail.test(inputContactForm.email.value.trim())) {
+        errorContactEmail.textContent = "L'email est invalide.";
+        errorContactEmail.style.color = "#ffcc00";
+        errorContactEmail.style.fontWeight = "bold";
+        valid = false;
+    } else {
+        errorContactEmail.textContent = "";
+    }
+
+    /* Vérification du Message */
+    if (inputContactForm.message.value.trim() === "") {
+        errorContactMessage.textContent = "Le message est obligatoire.";
+        errorContactMessage.style.color = "#ffcc00";
+        errorContactMessage.style.fontWeight = "bold";
+        valid = false;
+    } else {
+        errorContactMessage.textContent = "";
+    }
+
+    if (valid === false) {
+        e.preventDefault();
+    }
+}
