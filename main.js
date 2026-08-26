@@ -1,6 +1,8 @@
+if (!document.querySelector("#form-employe")) {
 let btnOrder = document.querySelector(".btn-order");
 let btnReserve=document.querySelector(".btn-reserve");
 let btnContactHero=document.querySelector(".btn-contact");
+let btnAdmin = document.querySelector(".btn-admin");
 btnOrder.addEventListener("click", function() {
     document.getElementById("menu").scrollIntoView({behavior:"instant"});
 });
@@ -11,6 +13,10 @@ btnReserve.addEventListener("click", function() {
 
 btnContactHero.addEventListener("click", function() {
     document.getElementById("contact").scrollIntoView({behavior: "instant"});
+});
+
+btnAdmin.addEventListener("click", function() {
+  window.location.href = "table-employees.html";
 });
 
 
@@ -304,3 +310,96 @@ function validityContactForm(e) {
         e.preventDefault();
     }
 }
+  }
+
+  const boutonAjout = document.querySelector(".ajout");
+  const popupEmploye = document.querySelector("#popup-employe");
+  const fermerEmploye = document.querySelector("#fermer-employe");
+  const fermerFormulaire = document.querySelector("#fermer-formulaire");
+  const formulaireEmploye = document.querySelector("#form-employe");
+  const corpsTableau = document.querySelector(".employees-table tbody");
+  const popupSuppression = document.querySelector("#popup-suppression");
+  const confirmerSuppression = document.querySelector("#confirmer-suppression");
+  const annulerSuppression = document.querySelector("#annuler-suppression");
+  const toastSuppression = document.querySelector("#toast-suppression");
+  let ligneASupprimer;
+
+  if (formulaireEmploye) {
+    boutonAjout.addEventListener("click", function() {
+      popupEmploye.classList.add("active");
+    });
+
+    fermerEmploye.addEventListener("click", function() {
+      popupEmploye.classList.remove("active");
+    });
+
+    fermerFormulaire.addEventListener("click", function() {
+      popupEmploye.classList.remove("active");
+    });
+
+    const inputEmployeForm = {
+      nom: document.getElementById("employe-nom"),
+      prenom: document.getElementById("employe-prenom"),
+      poste: document.getElementById("employe-poste"),
+      adresse: document.getElementById("employe-adresse")
+    };
+
+    const regexNomEmploye = /^[A-Za-zÀ-ÿ\s'-]+$/;
+
+    formulaireEmploye.addEventListener("submit", function(e) {
+      let valid = true;
+      const erreurs = {
+        nom: document.getElementById("employe-nom-error"),
+        prenom: document.getElementById("employe-prenom-error"),
+        poste: document.getElementById("employe-poste-error"),
+        adresse: document.getElementById("employe-adresse-error")
+      };
+
+      for (const nomChamp in inputEmployeForm) {
+        if (inputEmployeForm[nomChamp].value.trim() === "") {
+          erreurs[nomChamp].textContent = "Ce champ est obligatoire.";
+          erreurs[nomChamp].style.color = "#ffcc00";
+          erreurs[nomChamp].style.fontWeight = "bold";
+          valid = false;
+        } else if ((nomChamp === "nom" || nomChamp === "prenom") && !regexNomEmploye.test(inputEmployeForm[nomChamp].value.trim())) {
+          erreurs[nomChamp].textContent = "Utilisez seulement des lettres.";
+          erreurs[nomChamp].style.color = "#ffcc00";
+          erreurs[nomChamp].style.fontWeight = "bold";
+          valid = false;
+        } else {
+          erreurs[nomChamp].textContent = "";
+        }
+      }
+
+      if (valid === false) {
+        e.preventDefault();
+        return;
+      }
+
+      const ligne = document.createElement("tr");
+      ligne.innerHTML = `<td>EMP${String(corpsTableau.rows.length + 1).padStart(3, "0")}</td><td>${inputEmployeForm.prenom.value}</td><td>${inputEmployeForm.nom.value}</td><td>${inputEmployeForm.adresse.value}</td><td>${inputEmployeForm.poste.value}</td><td>-</td><td><button type="button" aria-label="Modifier" title="Modifier"><img src="https://icons.getbootstrap.com/assets/icons/pencil-square.svg" alt=""></button> <button type="button" aria-label="Supprimer" title="Supprimer"><img src="https://icons.getbootstrap.com/assets/icons/trash3.svg" alt=""></button></td>`;
+      corpsTableau.appendChild(ligne);
+      formulaireEmploye.reset();
+      popupEmploye.classList.remove("active");
+    });
+
+    corpsTableau.addEventListener("click", function(e) {
+      if (e.target.closest("td:last-child button:last-child")) {
+        ligneASupprimer = e.target.closest("tr");
+        popupSuppression.classList.add("active");
+      }
+    });
+
+    confirmerSuppression.addEventListener("click", function() {
+      ligneASupprimer.remove();
+      popupSuppression.classList.remove("active");
+      toastSuppression.classList.add("active");
+      setTimeout(function() {
+        toastSuppression.classList.remove("active");
+      }, 2000);
+    });
+
+    annulerSuppression.addEventListener("click", function() {
+      popupSuppression.classList.remove("active");
+    });
+  }

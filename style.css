@@ -891,3 +891,222 @@ form#contactForm div.boutons-groupe button:hover {
     }
 
 }
+
+.employees-table button {
+    font-size: inherit;
+}
+
+.employees-table button img {
+    width: 1em;
+    height: 1em;
+}
+
+.employees-table.table-success thead th {
+    color: green;
+}
+
+.employees-table tbody td:nth-child(1),
+.employees-table tbody td:nth-child(2),
+.employees-table tbody td:nth-child(3),
+.employees-table tbody td:nth-child(4) {
+    color: blue;
+}
+
+.employees-table tbody td:nth-child(6) {
+    color: red;
+}
+
+.employees-table tbody td:nth-child(5) {
+    color: darkgreen;
+}
+
+.employees-table button {
+    padding: 2px;
+    border: 1px solid darkgreen;
+    border-radius: 3px;
+    background: white;
+    width: 22px;
+    height: 22px;
+    line-height: 1;
+}
+
+.employees-table td:last-child button:first-child {
+    background: blue;
+    display: none;
+}
+
+.employees-table td:last-child button:last-child {
+    background: red;
+    display: none;
+}
+
+.employees-table td:last-child:hover button {
+    display: inline-block;
+}
+
+.employees-caption {
+    color: darkblue;
+    font-weight: bold;
+}
+
+.bar{
+    text-align: right;
+    margin: 20px 0;
+}
+
+.employees-table {
+    font-weight: bold;
+}
+
+#form-employe input {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+}
+
+#form-employe {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#form-employe .champ-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+#form-employe span.requis {
+    position: relative;
+    top: auto;
+    right: auto;
+    display: block;
+    margin-top: 4px;
+    text-align: left;
+    color: red;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+#form-employe .boutons-groupe {
+    text-align: right;
+}
+
+.bar input{
+    border: 2px solid blue;
+    width: 40%;
+    color: gray;
+    border-radius: 15px;
+}
+
+.bar button{
+    width: 20%;
+    color: white;
+    background: #0e38ac;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .employees-table {
+        font-size: 0.55rem;
+    }
+
+    .employees-table th,
+    .employees-table td {
+        padding: 2px;
+    }
+
+    .employees-table button {
+        width: 18px;
+        height: 18px;
+    }
+
+    .employees-table button img {
+        width: 0.8em;
+        height: 0.8em;
+    }
+
+    .bar input {
+        width: 65%;
+    }
+
+    .bar button {
+        width: 30%;
+    }
+
+    .popup-content {
+        width: 94vw;
+        padding: 18px 12px 12px;
+    }
+}
+
+#form-employe {
+    background: #0066ff;
+    color: white;
+    padding: 20px;
+}
+
+#form-employe input {
+    border: 2px solid greenyellow;
+    border-radius: 5px;
+}
+
+#form-employe .boutons-groupe button {
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+#form-employe .boutons-groupe button:first-child {
+    background: green;
+}
+
+#form-employe .boutons-groupe button:last-child {
+    background: red;
+}
+
+.titre-employe {
+    color: green;
+}
+
+.popup-confirmation {
+    text-align: center;
+}
+
+.popup-confirmation button {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+}
+
+#confirmer-suppression {
+    background: green;
+}
+
+#annuler-suppression {
+    background: red;
+}
+
+#toast-suppression {
+    display: none;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    padding: 12px 20px;
+    border-radius: 5px;
+    background: green;
+    color: white;
+    font-weight: bold;
+}
+
+#toast-suppression.active {
+    display: block;
+}
