@@ -1,177 +1,216 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="boostrap/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Gestion Restaurant</title>
 </head>
-<body>
-    
-    <div class="container-fluid px-1">
-    <div class="row justify-content-center">
-    <div class="col-12 col-md-6">
-        <div class="bar">
-        <input type="text" class="search">
-        <button class="ajout" type="button" aria-label="Ajouter" title="Ajouter">Ajouter + </button>
-            </div>
-            <div id="popup-employe" class="popup-overlay">
-                <div class="popup-content">
-                    <span class="close-popup" id="fermer-employe">&times;</span>
-                    <form id="form-employe">
-                        <h2 class="titre-employe">Ajouter un employé</h2>
-                        <div class="champ-group">
-                            <label for="employe-nom">Nom :</label>
-                            <span class="requis">Champ Obligatoire*</span>
-                            <input type="text" id="employe-nom" name="nom">
-                            <span id="employe-nom-error"></span>
-                        </div>
-                        <div class="champ-group">
-                            <label for="employe-prenom">Prénom :</label>
-                            <span class="requis">Champ Obligatoire*</span>
-                            <input type="text" id="employe-prenom" name="prenom">
-                            <span id="employe-prenom-error"></span>
-                        </div>
-                        <div class="champ-group">
-                            <label for="employe-poste">Poste :</label>
-                            <span class="requis">Champ Obligatoire*</span>
-                            <input type="text" id="employe-poste" name="poste">
-                            <span id="employe-poste-error"></span>
-                        </div>
-                        <div class="champ-group">
-                            <label for="employe-adresse">Adresse :</label>
-                            <span class="requis">Champ Obligatoire*</span>
-                            <input type="text" id="employe-adresse" name="adresse">
-                            <span id="employe-adresse-error"></span>
-                        </div>
-                        <div class="boutons-groupe">
-                            <button type="submit">Enregistrer</button>
-                            <button type="button" id="fermer-formulaire">Fermer</button>
-                        </div>
-                    </form>
+<body class="bg-light py-4">
+
+    <div class="container">
+        <div class="row justify-content-center mb-4">
+            <div class="col-12">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+                        <input type="text" class="form-control w-100 w-md-50" placeholder="Rechercher un employé..." aria-label="Recherche">
+                        <button class="btn btn-danger text-nowrap fw-semibold px-4" type="button" aria-label="Ajouter" title="Ajouter">
+                            + Ajouter
+                        </button>
+                    </div>
                 </div>
             </div>
-            <div id="popup-suppression" class="popup-overlay">
-                <div class="popup-content popup-confirmation">
-                    <h2>Supprimer cet employé ?</h2>
-                    <button type="button" id="confirmer-suppression">OK</button>
-                    <button type="button" id="annuler-suppression">Annuler</button>
-                </div>
-            </div>
-            <div id="toast-suppression">Suppression réussie</div>
         </div>
-    <figure class="text-center">
-    <table class="table table-success table-striped table-sm w-100 align-middle small text-wrap employees-table">
-        <thead>
-            <tr>
-                <th>Matricule</th>
-                <th>Prénom</th>
-                <th>Nom</th>
-                <th>Adresse</th>
-                <th>Poste</th>
-                <th>Salaire</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>EMP001</td>
-                <td>Awa</td>
-                <td>Diop</td>
-                <td>Plateau, Dakar</td>
-                <td>Gerante</td>
-                <td>350 000 FCFA</td>
-                <td class="text-nowrap"><button class="btn btn-sm p-0" type="button" aria-label="Modifier" title="Modifier"><img src="https://icons.getbootstrap.com/assets/icons/pencil-square.svg" alt=""></button> <button class="btn btn-sm p-0" type="button" aria-label="Supprimer" title="Supprimer"><img src="https://icons.getbootstrap.com/assets/icons/trash3.svg" alt=""></button></td>
-            </tr>
-            <tr>
-                <td>EMP002</td>
-                <td>Cheikh</td>
-                <td>Ndiaye</td>
-                <td>Almadies, Dakar</td>
-                <td>Chef cuisinier</td>
-                <td>275 000 FCFA</td>
-                <td><button type="button" aria-label="Modifier" title="Modifier"><img src="https://icons.getbootstrap.com/assets/icons/pencil-square.svg" alt=""></button> <button type="button" aria-label="Supprimer" title="Supprimer"><img src="https://icons.getbootstrap.com/assets/icons/trash3.svg" alt=""></button></td>
-            </tr>
-            <tr>
-                <td>EMP003</td>
-                <td>Fatou</td>
-                <td>Sarr</td>
-                <td>Medina, Dakar</td>
-                <td>Serveuse</td>
-                <td>180 000 FCFA</td>
-                <td><button type="button" aria-label="Modifier" title="Modifier"><img src="https://icons.getbootstrap.com/assets/icons/pencil-square.svg" alt=""></button> <button type="button" aria-label="Supprimer" title="Supprimer"><img src="https://icons.getbootstrap.com/assets/icons/trash3.svg" alt=""></button></td>
-            </tr>
-            <tr>
-                <td>EMP005</td>
-                <td>Mariama</td>
-                <td>Ba</td>
-                <td>HLM, Dakar</td>
-                <td>Caissiere</td>
-                <td>190 000 FCFA</td>
-                <td><button type="button" aria-label="Modifier" title="Modifier"><img src="https://icons.getbootstrap.com/assets/icons/pencil-square.svg" alt=""></button> <button type="button" aria-label="Supprimer" title="Supprimer"><img src="https://icons.getbootstrap.com/assets/icons/trash3.svg" alt=""></button></td>
-            </tr>
-            <tr>
-                <td>EMP006</td>
-                <td>Adama</td>
-                <td>Traore</td>
-                <td>Grand-Yoff, Dakar</td>
-                <td>Responsable de salle</td>
-                <td>240 000 FCFA</td>
-                <td><button type="button" aria-label="Modifier" title="Modifier"><img src="https://icons.getbootstrap.com/assets/icons/pencil-square.svg" alt=""></button> <button type="button" aria-label="Supprimer" title="Supprimer"><img src="https://icons.getbootstrap.com/assets/icons/trash3.svg" alt=""></button></td>
-            </tr>
-            <tr>
-                <td>EMP007</td>
-                <td>Aminata</td>
-                <td>Coulibaly</td>
-                <td>Ouakam, Dakar</td>
-                <td>Serveuse</td>
-                <td>180 000 FCFA</td>
-                <td><button type="button" aria-label="Modifier" title="Modifier"><img src="https://icons.getbootstrap.com/assets/icons/pencil-square.svg" alt=""></button> <button type="button" aria-label="Supprimer" title="Supprimer"><img src="https://icons.getbootstrap.com/assets/icons/trash3.svg" alt=""></button></td>
-            </tr>
-            <tr>
-                <td>EMP008</td>
-                <td>Boubacar</td>
-                <td>Keita</td>
-                <td>Yoff, Dakar</td>
-                <td>Chef cuisinier</td>
-                <td>280 000 FCFA</td>
-                <td><button type="button" aria-label="Modifier" title="Modifier"><img src="https://icons.getbootstrap.com/assets/icons/pencil-square.svg" alt=""></button> <button type="button" aria-label="Supprimer" title="Supprimer"><img src="https://icons.getbootstrap.com/assets/icons/trash3.svg" alt=""></button></td>
-            </tr>
-            <tr>
-                <td>EMP009</td>
-                <td>Mariam</td>
-                <td>Konate</td>
-                <td>Fass, Dakar</td>
-                <td>Patissiere</td>
-                <td>210 000 FCFA</td>
-                <td><button type="button" aria-label="Modifier" title="Modifier"><img src="https://icons.getbootstrap.com/assets/icons/pencil-square.svg" alt=""></button> <button type="button" aria-label="Supprimer" title="Supprimer"><img src="https://icons.getbootstrap.com/assets/icons/trash3.svg" alt=""></button></td>
-            </tr>
-            <tr>
-                <td>EMP010</td>
-                <td>Moussa</td>
-                <td>Diarra</td>
-                <td>Liberté 6, Dakar</td>
-                <td>Agent d'entretien</td>
-                <td>150 000 FCFA</td>
-                <td><button type="button" aria-label="Modifier" title="Modifier"><img src="https://icons.getbootstrap.com/assets/icons/pencil-square.svg" alt=""></button> <button type="button" aria-label="Supprimer" title="Supprimer"><img src="https://icons.getbootstrap.com/assets/icons/trash3.svg" alt=""></button></td>
-            </tr>
-            <tr>
-                <td>EMP011</td>
-                <td>Modou</td>
-                <td>Faye</td>
-                <td>Ngor, Dakar</td>
-                <td>Vigile</td>
-                <td>175 000 FCFA</td>
-                <td><button type="button" aria-label="Modifier" title="Modifier"><img src="https://icons.getbootstrap.com/assets/icons/pencil-square.svg" alt=""></button> <button type="button" aria-label="Supprimer" title="Supprimer"><img src="https://icons.getbootstrap.com/assets/icons/trash3.svg" alt=""></button></td>
-            </tr>
-        </tbody>
-    </table>
-    <figcaption class="employees-caption text-capitalize">liste des employes La Fournette</figcaption>
-    </figure>
+
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="card shadow-sm border-0 overflow-hidden">
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col" class="py-3 ps-3">Matricule</th>
+                                    <th scope="col" class="py-3">Prénom</th>
+                                    <th scope="col" class="py-3">Nom</th>
+                                    <th scope="col" class="py-3">Adresse</th>
+                                    <th scope="col" class="py-3">Poste</th>
+                                    <th scope="col" class="py-3">Salaire</th>
+                                    <th scope="col" class="py-3 text-end pe-3">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-group-divider">
+                                <tr>
+                                    <td class="fw-bold text-primary ps-3">EMP001</td>
+                                    <td>Awa</td>
+                                    <td>Diop</td>
+                                    <td>Plateau, Dakar</td>
+                                    <td><span class="badge bg-info text-dark">Gérante</span></td>
+                                    <td class="fw-semibold">350 000 FCFA</td>
+                                    <td class="text-end pe-3">
+                                        <button class="btn btn-sm btn-outline-primary me-1" type="button" title="Modifier">
+                                            <img src="https://icons.getbootstrap.com/assets/icons/pencil-square.svg" alt="Modifier" width="16" height="16">
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-danger" type="button" title="Supprimer">
+                                            <img src="https://icons.getbootstrap.com/assets/icons/trash3.svg" alt="Supprimer" width="16" height="16">
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold text-primary ps-3">EMP002</td>
+                                    <td>Cheikh</td>
+                                    <td>Ndiaye</td>
+                                    <td>Almadies, Dakar</td>
+                                    <td><span class="badge bg-secondary">Chef cuisinier</span></td>
+                                    <td class="fw-semibold">275 000 FCFA</td>
+                                    <td class="text-end pe-3">
+                                        <button class="btn btn-sm btn-outline-primary me-1" type="button" title="Modifier">
+                                            <img src="https://icons.getbootstrap.com/assets/icons/pencil-square.svg" alt="Modifier" width="16" height="16">
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-danger" type="button" title="Supprimer">
+                                            <img src="https://icons.getbootstrap.com/assets/icons/trash3.svg" alt="Supprimer" width="16" height="16">
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold text-primary ps-3">EMP003</td>
+                                    <td>Fatou</td>
+                                    <td>Sarr</td>
+                                    <td>Medina, Dakar</td>
+                                    <td><span class="badge bg-light text-dark border">Serveuse</span></td>
+                                    <td class="fw-semibold">180 000 FCFA</td>
+                                    <td class="text-end pe-3">
+                                        <button class="btn btn-sm btn-outline-primary me-1" type="button" title="Modifier">
+                                            <img src="https://icons.getbootstrap.com/assets/icons/pencil-square.svg" alt="Modifier" width="16" height="16">
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-danger" type="button" title="Supprimer">
+                                            <img src="https://icons.getbootstrap.com/assets/icons/trash3.svg" alt="Supprimer" width="16" height="16">
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold text-primary ps-3">EMP005</td>
+                                    <td>Mariama</td>
+                                    <td>Ba</td>
+                                    <td>HLM, Dakar</td>
+                                    <td><span class="badge bg-warning text-dark">Caissière</span></td>
+                                    <td class="fw-semibold">190 000 FCFA</td>
+                                    <td class="text-end pe-3">
+                                        <button class="btn btn-sm btn-outline-primary me-1" type="button" title="Modifier">
+                                            <img src="https://icons.getbootstrap.com/assets/icons/pencil-square.svg" alt="Modifier" width="16" height="16">
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-danger" type="button" title="Supprimer">
+                                            <img src="https://icons.getbootstrap.com/assets/icons/trash3.svg" alt="Supprimer" width="16" height="16">
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold text-primary ps-3">EMP006</td>
+                                    <td>Adama</td>
+                                    <td>Traoré</td>
+                                    <td>Grand-Yoff, Dakar</td>
+                                    <td><span class="badge bg-success">Responsable de salle</span></td>
+                                    <td class="fw-semibold">240 000 FCFA</td>
+                                    <td class="text-end pe-3">
+                                        <button class="btn btn-sm btn-outline-primary me-1" type="button" title="Modifier">
+                                            <img src="https://icons.getbootstrap.com/assets/icons/pencil-square.svg" alt="Modifier" width="16" height="16">
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-danger" type="button" title="Supprimer">
+                                            <img src="https://icons.getbootstrap.com/assets/icons/trash3.svg" alt="Supprimer" width="16" height="16">
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold text-primary ps-3">EMP007</td>
+                                    <td>Aminata</td>
+                                    <td>Coulibaly</td>
+                                    <td>Ouakam, Dakar</td>
+                                    <td><span class="badge bg-light text-dark border">Serveuse</span></td>
+                                    <td class="fw-semibold">180 000 FCFA</td>
+                                    <td class="text-end pe-3">
+                                        <button class="btn btn-sm btn-outline-primary me-1" type="button" title="Modifier">
+                                            <img src="https://icons.getbootstrap.com/assets/icons/pencil-square.svg" alt="Modifier" width="16" height="16">
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-danger" type="button" title="Supprimer">
+                                            <img src="https://icons.getbootstrap.com/assets/icons/trash3.svg" alt="Supprimer" width="16" height="16">
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold text-primary ps-3">EMP008</td>
+                                    <td>Boubacar</td>
+                                    <td>Keita</td>
+                                    <td>Yoff, Dakar</td>
+                                    <td><span class="badge bg-secondary">Chef cuisinier</span></td>
+                                    <td class="fw-semibold">280 000 FCFA</td>
+                                    <td class="text-end pe-3">
+                                        <button class="btn btn-sm btn-outline-primary me-1" type="button" title="Modifier">
+                                            <img src="https://icons.getbootstrap.com/assets/icons/pencil-square.svg" alt="Modifier" width="16" height="16">
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-danger" type="button" title="Supprimer">
+                                            <img src="https://icons.getbootstrap.com/assets/icons/trash3.svg" alt="Supprimer" width="16" height="16">
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold text-primary ps-3">EMP009</td>
+                                    <td>Mariam</td>
+                                    <td>Konate</td>
+                                    <td>Fass, Dakar</td>
+                                    <td><span class="badge bg-primary">Pâtissière</span></td>
+                                    <td class="fw-semibold">210 000 FCFA</td>
+                                    <td class="text-end pe-3">
+                                        <button class="btn btn-sm btn-outline-primary me-1" type="button" title="Modifier">
+                                            <img src="https://icons.getbootstrap.com/assets/icons/pencil-square.svg" alt="Modifier" width="16" height="16">
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-danger" type="button" title="Supprimer">
+                                            <img src="https://icons.getbootstrap.com/assets/icons/trash3.svg" alt="Supprimer" width="16" height="16">
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold text-primary ps-3">EMP010</td>
+                                    <td>Moussa</td>
+                                    <td>Diarra</td>
+                                    <td>Liberté 6, Dakar</td>
+                                    <td><span class="badge bg-dark">Agent d'entretien</span></td>
+                                    <td class="fw-semibold">150 000 FCFA</td>
+                                    <td class="text-end pe-3">
+                                        <button class="btn btn-sm btn-outline-primary me-1" type="button" title="Modifier">
+                                            <img src="https://icons.getbootstrap.com/assets/icons/pencil-square.svg" alt="Modifier" width="16" height="16">
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-danger" type="button" title="Supprimer">
+                                            <img src="https://icons.getbootstrap.com/assets/icons/trash3.svg" alt="Supprimer" width="16" height="16">
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold text-primary ps-3">EMP011</td>
+                                    <td>Modou</td>
+                                    <td>Faye</td>
+                                    <td>Ngor, Dakar</td>
+                                    <td><span class="badge bg-dark">Vigile</span></td>
+                                    <td class="fw-semibold">175 000 FCFA</td>
+                                    <td class="text-end pe-3">
+                                        <button class="btn btn-sm btn-outline-primary me-1" type="button" title="Modifier">
+                                            <img src="https://icons.getbootstrap.com/assets/icons/pencil-square.svg" alt="Modifier" width="16" height="16">
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-danger" type="button" title="Supprimer">
+                                            <img src="https://icons.getbootstrap.com/assets/icons/trash3.svg" alt="Supprimer" width="16" height="16">
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer bg-white text-end text-muted small fst-italic py-3 pe-3">
+                        Liste des employés - La Fournette
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    </div>
-   </div>
-   <script src="main.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
