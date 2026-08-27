@@ -892,6 +892,8 @@ form#contactForm div.boutons-groupe button:hover {
 
 }
 
+/*************Tableau Formulaires et popup**************************************/
+
 .employees-table button {
     font-size: inherit;
 }
@@ -920,15 +922,8 @@ form#contactForm div.boutons-groupe button:hover {
     color: darkgreen;
 }
 
-.employees-table button {
-    padding: 2px;
-    border: 1px solid darkgreen;
-    border-radius: 3px;
-    background: white;
-    width: 22px;
-    height: 22px;
-    line-height: 1;
-}
+
+
 
 .employees-table td:last-child button:first-child {
     background: blue;
@@ -979,8 +974,8 @@ form#contactForm div.boutons-groupe button:hover {
 
 #form-employe span.requis {
     position: relative;
-    top: auto;
-    right: auto;
+    top: 0;
+    right: 0;
     display: block;
     margin-top: 4px;
     text-align: left;

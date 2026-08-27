@@ -203,13 +203,13 @@ function validityForm(e) {
 
 /*****section témoignages */
 
-/*  1 : Sélection des éléments HTML */
+/*   Sélection des éléments HTML */
 let slides = document.querySelectorAll("#temoignages .slide");
 let btnSuiv = document.querySelector(".suiv");
 let btnPrec = document.querySelector(".prec");
 let index = 0;
 
-/* 2 : Fonction pour afficher la carte active */
+/*  Fonction pour afficher la carte active */
 function afficherSlide(n) {
     for (let i = 0; i < slides.length; i++) {
         slides[i].classList.remove("active");
@@ -217,7 +217,7 @@ function afficherSlide(n) {
     slides[n].classList.add("active");
 }
 
-/* 3 : Clic sur le bouton Suivant */
+/* Clic sur le bouton Suivant */
 btnSuiv.addEventListener("click", function() {
     index = index + 1;
     if (index >= slides.length) {
@@ -226,7 +226,7 @@ btnSuiv.addEventListener("click", function() {
     afficherSlide(index);
 });
 
-/*  4 : Clic sur le bouton Précédent */
+/*   Clic sur le bouton Précédent */
 btnPrec.addEventListener("click", function() {
     index = index - 1;
     if (index < 0) {
@@ -235,7 +235,7 @@ btnPrec.addEventListener("click", function() {
     afficherSlide(index);
 });
 
-/* 5 : Defilement automatique toutes les 4 secondes */
+/*  Defilement automatique toutes les 4 secondes */
 setInterval(function() {
     index = index + 1;
     if (index >= slides.length) {
@@ -311,10 +311,10 @@ function validityContactForm(e) {
     }
 }
   }
-
+/********Partie popup et formulaire de Ajout employees */
   const boutonAjout = document.querySelector(".ajout");
   const popupEmploye = document.querySelector("#popup-employe");
-  const fermerEmploye = document.querySelector("#fermer-employe");
+  const fermerAjEmploye = document.querySelector("#fermer-employe");
   const fermerFormulaire = document.querySelector("#fermer-formulaire");
   const formulaireEmploye = document.querySelector("#form-employe");
   const corpsTableau = document.querySelector(".employees-table tbody");
@@ -329,7 +329,7 @@ function validityContactForm(e) {
       popupEmploye.classList.add("active");
     });
 
-    fermerEmploye.addEventListener("click", function() {
+    fermerAjEmploye.addEventListener("click", function() {
       popupEmploye.classList.remove("active");
     });
 
@@ -355,33 +355,58 @@ function validityContactForm(e) {
         adresse: document.getElementById("employe-adresse-error")
       };
 
-      for (const nomChamp in inputEmployeForm) {
-        if (inputEmployeForm[nomChamp].value.trim() === "") {
-          erreurs[nomChamp].textContent = "Ce champ est obligatoire.";
-          erreurs[nomChamp].style.color = "#ffcc00";
-          erreurs[nomChamp].style.fontWeight = "bold";
-          valid = false;
-        } else if ((nomChamp === "nom" || nomChamp === "prenom") && !regexNomEmploye.test(inputEmployeForm[nomChamp].value.trim())) {
-          erreurs[nomChamp].textContent = "Utilisez seulement des lettres.";
-          erreurs[nomChamp].style.color = "#ffcc00";
-          erreurs[nomChamp].style.fontWeight = "bold";
-          valid = false;
-        } else {
-          erreurs[nomChamp].textContent = "";
-        }
+      if (inputEmployeForm.nom.value.trim() === "") {
+        erreurs.nom.textContent = "Ce champ est obligatoire.";
+        erreurs.nom.style.color = "#ffcc00";
+        erreurs.nom.style.fontWeight = "bold";
+        valid = false;
+      } else if (!regexNomEmploye.test(inputEmployeForm.nom.value.trim())) {
+        erreurs.nom.textContent = "Utilisez seulement des lettres.";
+        erreurs.nom.style.color = "#ffcc00";
+        erreurs.nom.style.fontWeight = "bold";
+        valid = false;
+      } else {
+        erreurs.nom.textContent = "";
+      }
+
+      if (inputEmployeForm.prenom.value.trim() === "") {
+        erreurs.prenom.textContent = "Ce champ est obligatoire.";
+        erreurs.prenom.style.color = "#ffcc00";
+        erreurs.prenom.style.fontWeight = "bold";
+        valid = false;
+      } else if (!regexNomEmploye.test(inputEmployeForm.prenom.value.trim())) {
+        erreurs.prenom.textContent = "Utilisez seulement des lettres.";
+        erreurs.prenom.style.color = "#ffcc00";
+        erreurs.prenom.style.fontWeight = "bold";
+        valid = false;
+      } else {
+        erreurs.prenom.textContent = "";
+      }
+
+      if (inputEmployeForm.poste.value.trim() === "") {
+        erreurs.poste.textContent = "Ce champ est obligatoire.";
+        erreurs.poste.style.color = "#ffcc00";
+        erreurs.poste.style.fontWeight = "bold";
+        valid = false;
+      } else {
+        erreurs.poste.textContent = "";
+      }
+
+      if (inputEmployeForm.adresse.value.trim() === "") {
+        erreurs.adresse.textContent = "Ce champ est obligatoire.";
+        erreurs.adresse.style.color = "#ffcc00";
+        erreurs.adresse.style.fontWeight = "bold";
+        valid = false;
+      } else {
+        erreurs.adresse.textContent = "";
       }
 
       if (valid === false) {
         e.preventDefault();
-        return;
       }
-
-      const ligne = document.createElement("tr");
-      ligne.innerHTML = `<td>EMP${String(corpsTableau.rows.length + 1).padStart(3, "0")}</td><td>${inputEmployeForm.prenom.value}</td><td>${inputEmployeForm.nom.value}</td><td>${inputEmployeForm.adresse.value}</td><td>${inputEmployeForm.poste.value}</td><td>-</td><td><button type="button" aria-label="Modifier" title="Modifier"><img src="https://icons.getbootstrap.com/assets/icons/pencil-square.svg" alt=""></button> <button type="button" aria-label="Supprimer" title="Supprimer"><img src="https://icons.getbootstrap.com/assets/icons/trash3.svg" alt=""></button></td>`;
-      corpsTableau.appendChild(ligne);
-      formulaireEmploye.reset();
-      popupEmploye.classList.remove("active");
     });
+
+      /***Toast */
 
     corpsTableau.addEventListener("click", function(e) {
       if (e.target.closest("td:last-child button:last-child")) {
