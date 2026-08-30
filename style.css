@@ -2,15 +2,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family:"Poppins" , sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 body{
-    width:100vw;
+    width: 100vw;
     font-weight: bold;
     color: whitesmoke;
     overflow-x: hidden;
-
 }
 
 nav{
@@ -26,7 +25,7 @@ nav{
     border-bottom: 2px solid blue;
 }
 
-nav>ul{
+nav > ul{
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -34,7 +33,7 @@ nav>ul{
     width: 70%;
 }
 
-nav>ul>li{
+nav > ul > li{
     width: 10%;
     font-size: 12px;
 }
@@ -44,12 +43,12 @@ a{
     color: whitesmoke;
 }
 
-nav>ul>li:hover>a{
+nav > ul > li:hover > a{
     color: rgb(90, 228, 90);
 }
 
-nav>button{
-    color:whitesmoke;
+nav > button{
+    color: whitesmoke;
     background: green;
     font-weight: bold;
     padding: 8px;
@@ -57,7 +56,7 @@ nav>button{
     cursor: pointer;
 }
 
-nav>button:hover{
+nav > button:hover{
     background: #ffcc00;
     color: #1a1a1a;
 }
@@ -66,7 +65,6 @@ label#hburger{
     display: none;
     cursor: pointer;
     color: rgb(255, 255, 255);
-
 }
 
 input#burger{
@@ -76,7 +74,6 @@ input#burger{
 div.logo{
     width: 40px;
     height: 40px;
-
 }
 
 div.nom-resto{
@@ -84,36 +81,29 @@ div.nom-resto{
     font-size: 20px;
 }
 
-
-
 .hero-section{
     height: 98vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align:center;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./images/Fond.jpg);
+    text-align: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(Fond.jpg);
     background-size: cover;
-    background-position:center ;
+    background-position: center;
     background-repeat: no-repeat;
     color: white;
     padding: 20px;
 }
+
 .hero-content{
-
-max-width: 800px;
-display: flex;
-flex-direction: column;
-align-items: center;
-
-
-
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-
-
- .hero-content h1{
+.hero-content h1{
     font-size: 4rem;
     color: white;
     text-transform: uppercase;
@@ -122,21 +112,22 @@ align-items: center;
     margin-bottom: 2rem;
     text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
 }
+
 .hero-slogan{
     font-size: 1.8rem;
     color: #f7e600;
     margin-bottom: 2.5rem;
     font-weight: 700;
 }
-.hero-buttons{
-display:flex;
-gap: 20px;
-justify-content: center;
 
+.hero-buttons{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
 }
 
- .btn-hero{
-    padding:15px 35px;
+.btn-hero{
+    padding: 15px 35px;
     font-size: 1.1rem;
     cursor: pointer;
     border: none;
@@ -148,90 +139,52 @@ justify-content: center;
     box-shadow: 0 6px 15px rgba(255, 107, 107, 0.3);
 }
 
-.hero-section .btn-hero:hover {
+.hero-section .btn-hero:hover{
     background: #ffcc00;
     transform: translateY(-8px);
-
-}
-@media screen and (max-width: 768px) {
-    .hero-section {
-        height: 100vh;
-    }
-    .hero-content h1 {
-        font-size: 2.8rem;
-    }
-    .hero-buttons {
-        flex-direction: column;
-        gap: 10px;
-        width: 100%;
-        max-width: 300px;
-    }
 }
 
-@media  screen and (max-width:768px) {
-    div.slogan{
-        display:none;
-    }
-
-    nav>button{
-        display: none;
-    }
-
-    nav{
-        height: 150px;
-    }
-
-    nav>ul{
-        display: none;
-        flex-direction: column;
-        
-    }
-    nav>ul>li{
-        width: 100%;
-        margin: 5px 0;
-    }
-    nav>label#hburger{
-        display: block;
-        position: absolute;
-        right: 20px;
-
-    }
-
-    nav>input#burger[type=checkbox]:checked ~ul{
-        display: block;
-    }
+#galerie {
+    padding: 40px 20px;
+    background: #ffffff;
 }
 
-@media screen and (min-width:768px) and (max-width:992px){
-    div.nom-resto{
-        font-size: 14px;
-    }
-    div.slogan{
-        font-size: 10px;
-    }
-
-    div.logo{
-        text-align: center;
-        align-items: center;
-        height: auto;
-    }
-
-    div.logo>svg{
-        width: 1.5em;
-        height: 1.5em;
-    }
-    nav>ul>li>a{
-        font-size: 10px;
-    }
-    
-    nav>button{
-        padding: 8px;
-        font-size: 10px;
-    }
-
-    
+#galerie h2 {
+    text-align: center;
+    color: #0066ff;
+    margin-bottom: 25px;
+    font-size: 2rem;
 }
-  
+
+.galerie-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.galerie-grid .fig-item {
+    width: 100%;
+    height: 220px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.galerie-grid .fig-item:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.galerie-grid .img-fig {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
 #menu{
     width: 100%;
     padding: 20px;
@@ -240,278 +193,277 @@ justify-content: center;
 .menu-category{
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns:repeat(4 , 1fr);
 }
 
 #menu h2{
     text-align: center;
-    color:#0066ff;
+    color: #0066ff;
     margin: 15px 0;
 }
 
-
-
 .item {
-  background: white;
-  border-radius: 15px;
-  padding: 15px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
-  margin-bottom: 20px; 
-  padding-bottom: 50px; 
-  display: flex;
-  flex-direction: column;
-  border: 2px solid green;
-  box-shadow: 5px 5px 1px blue;
-  width: 90%;
+    background: white;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    margin-bottom: 20px; 
+    padding-bottom: 50px; 
+    display: flex;
+    flex-direction: column;
+    border: 2px solid green;
+    box-shadow: 5px 5px 1px blue;
+    width: 90%;
 }
-
 
 figure.fig-item {
-  width: 100%;
-  height: 200px;
-  border-radius: 10px;
-  overflow: hidden;
-  margin-bottom: 12px;
-} 
-figure.fig-item { transform: scale(1.05); 
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    transform: scale(1.05); 
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     cursor: pointer;
-}
+} 
 
 figure > img.img-fig {
-  width: 100%;
-  height: 100%;
-  
+    width: 100%;
+    height: 100%;
 }
+
 .item:hover{
-     transform: scale(1.05); 
+    transform: scale(1.05); 
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     cursor: pointer;
 }
 
 .nom-plats h3 {
-  color: #1a1a1a;
-  font-size: 1.1rem;
-  margin-bottom: 6px;
+    color: #1a1a1a;
+    font-size: 1.1rem;
+    margin-bottom: 6px;
 }
-
 
 .description p {
-  color: #666;
-  font-size: 0.85rem;
-  line-height: 1.4;
-  margin-bottom: 15px;
-  font-weight: normal;
+    color: #666;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin-bottom: 15px;
+    font-weight: normal;
 }
-
-
-
 
 .prix p {
-  color: #0066ff;
-  font-size: 1.1rem;
-  font-weight: bold;
-  margin: 0;
+    color: #0066ff;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 0;
 }
 
-
-
 .btn-commander button {
-  background: green;
-  color: white;
-  border: none;
-  padding: 6px 14px;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
-  font-size: 0.85rem;
-  transition: background 0.3s ease;
-  margin: 20px 0 0 0;
+    background: green;
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background 0.3s ease;
+    margin: 20px 0 0 0;
 }
 
 .btn-commander button:hover {
-  background: #ffcc00;
-  color: #1a1a1a;
+    background: #ffcc00;
+    color: #1a1a1a;
 }
 
-@media screen and (max-width: 768px) {
-    .menu-category {
-        grid-template-columns: 1fr;
-    }
+.btn-phares-p > button {
+    background: #0066ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+    margin: 15px 0;
 }
 
-@media screen  and (min-width: 769px) and (max-width: 992px) {
-    .menu-category {
-        grid-template-columns: 1fr 1fr;
-    }
-    
-}
-
-.btn-phares-p>button {
-  background: #0066ff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background 0.3s ease;
-  margin: 15px 0;
-
-}
-.btn-phares-p>button:hover {
-  background: #ffcc00;
-  color: #1a1a1a;
+.btn-phares-p > button:hover {
+    background: #ffcc00;
+    color: #1a1a1a;
 }
 
 
 .popup-overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  justify-content: center;
-  align-items: center;
-  z-index: 2000;
-  padding: 20px;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    padding: 20px;
 }
 
 .popup-overlay.active {
-  display: flex;
+    display: flex;
 }
 
 .popup-content {
-  background: white;
-  color: #1a1a1a;
-  padding: 20px;
-  border-radius: 10px;
-  position: relative;
-  max-width: 1100px;
-  width: min(1100px, 92vw);
-  max-height: 80vh;
-  overflow-y: auto;
-  overflow-x: hidden;
+    background: white;
+    color: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+    max-width: 1100px;
+    width: min(1100px, 92vw);
+    max-height: 80vh;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .popup-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
-  width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    width: 100%;
 }
 
 .popup-grid .item {
-  width: 100%;
-  margin-bottom: 0;
-  padding-bottom: 30px;
+    width: 100%;
+    margin-bottom: 0;
+    padding-bottom: 30px;
 }
 
 .popup-item {
-  display: flex;
-  align-items: center;
-  gap: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 .popup-item img {
-  width: 90px;
-  height: 90px;
-  border-radius: 8px;
+    width: 90px;
+    height: 90px;
+    border-radius: 8px;
 }
 
 .popup-info h3 {
-  font-size: 1.05rem;
-  margin-bottom: 5px;
+    font-size: 1.05rem;
+    margin-bottom: 5px;
 }
 
 .popup-info .desc {
-  font-size: 0.85rem;
-  color: #666;
-  margin-bottom: 8px;
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 8px;
 }
 
 .popup-info .prix {
-  color: green;
-  font-weight: bold;
+    color: green;
+    font-weight: bold;
 }
 
 .close-popup {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 26px;
-  text-decoration: none;
-  color: #666;
-  font-weight: bold;
-  cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 26px;
+    text-decoration: none;
+    color: #666;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .close-popup:hover {
-  color: red;
+    color: red;
 }
-
-@media screen and (max-width: 768px) {
-    .popup-content {
-        width: 94vw;
-        max-height: 85vh;
-        padding: 18px 12px 12px;
-    }
-
-    .popup-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media screen and (min-width: 769px) and (max-width: 992px) {
-    .popup-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
 
 #Reservation-Commande{
     width: 100%;
     background: #0066ff;
 }
 
-#Reservation-Commande>h2{
+#Reservation-Commande > h2{
     text-align: center;
     color: rgb(140, 247, 19);
     padding: 20px 0;
 }
+
 form#resercom{
     display: flex;
     flex-direction: column;
     gap: 15px;
     padding: 20px;
     margin-left: 5%;
-
 }
 
-form#resercom input, form#resercom select, form#resercom textarea{
+div.champ-group{
+    width: 60%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.champ-group label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-weight: bold;
+    margin-bottom: 4px;
+    color: white;
+}
+
+.champ-group label .label-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+span.icon-lab {
+    display: inline-flex;
+    align-items: center;
+}
+
+span.icon-lab svg{
+    width: 20px;
+    height: 20px;
+}
+
+.champ-group span.requis,
+form#resercom span.requis,
+form#contactForm span.requis {
+    position: static;
+    color: red;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin: 0;
+    text-align: right;
+    display: inline;
+    width: auto;
+}
+
+form#resercom input, 
+form#resercom select, 
+form#resercom textarea{
     padding: 10px;
     border-radius: 5px;
     border: 2px solid greenyellow;
-    width: 60%;
+    width: 100%;
     margin: 6px 0 0;
-}
-
-form#resercom textarea{
-    margin: 6px 0 0;
-}
-
-form#resercom label{
-    margin: 0;
 }
 
 form#resercom div.boutons-groupe{
     text-align: right;
-    margin:10px 0;
+    width: 60%;
+    margin: 10px 0;
 }
 
 form#resercom div.boutons-groupe button{
@@ -522,7 +474,6 @@ form#resercom div.boutons-groupe button{
     font-weight: bold;
     cursor: pointer;
     padding: 10px 20px;
-    margin: 10px;
     transition: all 0.3s ease;
 }
 
@@ -530,70 +481,6 @@ form#resercom div.boutons-groupe button:hover{
     background: #ffcc00;
     color: #1a1a1a;
 }
-
-div.champ-group{
-    width: 90%;
-    position: relative;
-}
-
-form#resercom .champ-group {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-form#resercom span.requis {
-    position: relative;
-    display: block;
-    margin-top: 4px;
-    text-align: right;
-    left: 0;
-    width: 60%;
-}
-
-span.requis{
-    position: absolute;
-    top: 0%;
-    right: 5%;
-    color: red;
-    font-size: 1rem;
-    font-weight: bold;
-}
-
-span.icon-lab svg{
-    width: 20px;
-    height: 20px;
-}
-
-@media  screen and (max-width:768px) {
-    form#resercom {
-        margin-left: 0;
-    }
-
-    form#resercom input, form#resercom select, form#resercom textarea{
-        width: 80%;
-    }
-
-    form#resercom span.requis {
-        text-align: left;
-        width: 80%;
-    }
-}
-
-@media  screen and (min-width:769px) and (max-width:992px) {
-    form#resercom input,
-    form#resercom select,
-    form#resercom textarea{
-        width: 62%;
-    }
-
-    form#resercom span.requis {
-        width: 62%;
-    }
-
-}
-
-
 
 #temoignages {
     padding: 40px 20px;
@@ -620,7 +507,6 @@ span.icon-lab svg{
     align-items: center;
     text-align: center;
 }
-
 
 .slide.active {
     display: flex;
@@ -684,17 +570,6 @@ span.icon-lab svg{
     color: #1a1a1a;
 }
 
-
-.slide {
-    display: none; 
-}
-
-.slide.active {
-    display: flex; 
-}
-
-
-
 #contact {
     width: 100%;
     background: #0066ff;
@@ -731,6 +606,9 @@ span.icon-lab svg{
 .contact-info p {
     margin: 15px 0;
     line-height: 1.5;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 form#contactForm {
@@ -740,29 +618,17 @@ form#contactForm {
     gap: 15px;
 }
 
+form#contactForm .champ-group {
+    width: 80%;
+}
+
 form#contactForm input, 
 form#contactForm textarea {
     padding: 10px;
     border-radius: 5px;
     border: 2px solid greenyellow;
-    width: 80%;
-    margin: 6px 0 0 0;
-}
-
-form#contactForm .champ-group {
     width: 100%;
-}
-
-form#contactForm span.requis {
-    position: static;
-    display: block;
-    margin-top: 4px;
-    text-align: right;
-    width: 80%;
-}
-
-form#contactForm label {
-    margin-right: 10px;
+    margin: 6px 0 0 0;
 }
 
 form#contactForm div.boutons-groupe {
@@ -787,31 +653,6 @@ form#contactForm div.boutons-groupe button:hover {
     color: #1a1a1a;
 }
 
-@media screen and (max-width: 768px) {
-    .contact-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .contact-info, 
-    form#contactForm {
-        width: 90%;
-    }
-
-    form#contactForm input, 
-    form#contactForm textarea,
-    form#contactForm div.boutons-groupe {
-        width: 100%;
-    }
-
-    form#contactForm span.requis {
-        text-align: left;
-        width: 100%;
-    }
-}
-
-
-
 #footer {
     background-color: #0e38ac;
     color: whitesmoke;
@@ -832,6 +673,7 @@ form#contactForm div.boutons-groupe button:hover {
 
 .footer-map iframe{
     border-radius: 15px;
+    width: 100%;
 }
 
 .footer-container h3 {
@@ -872,28 +714,6 @@ form#contactForm div.boutons-groupe button:hover {
     line-height: 1.5;
 }
 
-@media screen and (max-width: 768px) {
-    .footer-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
-    .footer-map,
-    .footer-info,
-    .footer-socials {
-        width: 100%;
-        margin-bottom: 15px;
-    }
-
-    .copyright {
-        width: 90%;
-        font-size: 0.8rem;
-    }
-
-}
-
-/*************Tableau Formulaires et popup**************************************/
-
 .employees-table button {
     font-size: inherit;
 }
@@ -921,9 +741,6 @@ form#contactForm div.boutons-groupe button:hover {
 .employees-table tbody td:nth-child(5) {
     color: darkgreen;
 }
-
-
-
 
 .employees-table td:last-child button:first-child {
     background: blue;
@@ -957,12 +774,17 @@ form#contactForm div.boutons-groupe button:hover {
     width: 100%;
     padding: 8px;
     margin: 5px 0;
+    border: 2px solid greenyellow;
+    border-radius: 5px;
 }
 
 #form-employe {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    background: #0066ff;
+    color: white;
+    padding: 20px;
 }
 
 #form-employe .champ-group {
@@ -972,80 +794,8 @@ form#contactForm div.boutons-groupe button:hover {
     position: relative;
 }
 
-#form-employe span.requis {
-    position: relative;
-    top: 0;
-    right: 0;
-    display: block;
-    margin-top: 4px;
-    text-align: left;
-    color: red;
-    font-size: 1rem;
-    font-weight: bold;
-}
-
 #form-employe .boutons-groupe {
     text-align: right;
-}
-
-.bar input{
-    border: 2px solid blue;
-    width: 40%;
-    color: gray;
-    border-radius: 15px;
-}
-
-.bar button{
-    width: 20%;
-    color: white;
-    background: #0e38ac;
-    font-weight: bold;
-    border-radius: 10px;
-}
-
-@media screen and (max-width: 768px) {
-    .employees-table {
-        font-size: 0.55rem;
-    }
-
-    .employees-table th,
-    .employees-table td {
-        padding: 2px;
-    }
-
-    .employees-table button {
-        width: 18px;
-        height: 18px;
-    }
-
-    .employees-table button img {
-        width: 0.8em;
-        height: 0.8em;
-    }
-
-    .bar input {
-        width: 65%;
-    }
-
-    .bar button {
-        width: 30%;
-    }
-
-    .popup-content {
-        width: 94vw;
-        padding: 18px 12px 12px;
-    }
-}
-
-#form-employe {
-    background: #0066ff;
-    color: white;
-    padding: 20px;
-}
-
-#form-employe input {
-    border: 2px solid greenyellow;
-    border-radius: 5px;
 }
 
 #form-employe .boutons-groupe button {
@@ -1063,6 +813,21 @@ form#contactForm div.boutons-groupe button:hover {
 
 #form-employe .boutons-groupe button:last-child {
     background: red;
+}
+
+.bar input{
+    border: 2px solid blue;
+    width: 40%;
+    color: gray;
+    border-radius: 15px;
+}
+
+.bar button{
+    width: 20%;
+    color: white;
+    background: #0e38ac;
+    font-weight: bold;
+    border-radius: 10px;
 }
 
 .titre-employe {
@@ -1104,4 +869,185 @@ form#contactForm div.boutons-groupe button:hover {
 
 #toast-suppression.active {
     display: block;
+}
+
+/* MEDIA QUERIES (RESPONSIVE) */
+@media screen and (max-width: 768px) {
+    .hero-section {
+        height: 100vh;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    div.slogan{
+        display: none;
+    }
+
+    nav > button{
+        display: none;
+    }
+
+    nav{
+        height: 150px;
+    }
+
+    nav > ul{
+        display: none;
+        flex-direction: column;
+    }
+
+    nav > ul > li{
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    nav > label#hburger{
+        display: block;
+        position: absolute;
+        right: 20px;
+    }
+
+    nav > input#burger[type=checkbox]:checked ~ ul{
+        display: block;
+    }
+
+    .galerie-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .menu-category {
+        grid-template-columns: 1fr;
+    }
+
+    .popup-content {
+        width: 94vw;
+        max-height: 85vh;
+        padding: 18px 12px 12px;
+    }
+
+    .popup-grid {
+        grid-template-columns: 1fr;
+    }
+
+    form#resercom {
+        margin-left: 0;
+    }
+
+    div.champ-group,
+    form#resercom div.boutons-groupe,
+    form#contactForm .champ-group,
+    form#contactForm div.boutons-groupe {
+        width: 100%;
+    }
+
+    .contact-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-info, 
+    form#contactForm {
+        width: 90%;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-map,
+    .footer-info,
+    .footer-socials {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .copyright {
+        width: 90%;
+        font-size: 0.8rem;
+    }
+
+    .employees-table {
+        font-size: 0.55rem;
+    }
+
+    .employees-table th,
+    .employees-table td {
+        padding: 2px;
+    }
+
+    .employees-table button {
+        width: 18px;
+        height: 18px;
+    }
+
+    .employees-table button img {
+        width: 0.8em;
+        height: 0.8em;
+    }
+
+    .bar input {
+        width: 65%;
+    }
+
+    .bar button {
+        width: 30%;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 992px) {
+    div.nom-resto{
+        font-size: 14px;
+    }
+
+    div.slogan{
+        font-size: 10px;
+    }
+
+    div.logo{
+        text-align: center;
+        align-items: center;
+        height: auto;
+    }
+
+    div.logo > svg{
+        width: 1.5em;
+        height: 1.5em;
+    }
+
+    nav > ul > li > a{
+        font-size: 10px;
+    }
+
+    nav > button{
+        padding: 8px;
+        font-size: 10px;
+    }
+
+    .galerie-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .menu-category {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .popup-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    div.champ-group,
+    form#resercom div.boutons-groupe {
+        width: 70%;
+    }
 }
