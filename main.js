@@ -1,430 +1,277 @@
-if (!document.querySelector("#form-employe")) {
-let btnOrder = document.querySelector(".btn-order");
-let btnReserve=document.querySelector(".btn-reserve");
-let btnContactHero=document.querySelector(".btn-contact");
-let btnAdmin = document.querySelector(".btn-admin");
-btnOrder.addEventListener("click", function() {
-    document.getElementById("menu").scrollIntoView({behavior:"instant"});
-});
+document.addEventListener('DOMContentLoaded', () => {
+    
+    const regexNom = /^[A-Za-zÀ-ÿ\s'-]+$/;
+    const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const regexTel = /^\d{8,}$/;
 
-btnReserve.addEventListener("click", function() {
-    document.getElementById("Reservation-Commande").scrollIntoView({behavior: "instant"});
-});
+    
+    const btnOrder = document.querySelector(".btn-order");
+    const btnReserve = document.querySelector(".btn-reserve");
+    const btnContactHero = document.querySelector(".btn-contact");
+    const btnAdmin = document.querySelector(".btn-admin");
 
-btnContactHero.addEventListener("click", function() {
-    document.getElementById("contact").scrollIntoView({behavior: "instant"});
-});
-
-btnAdmin.addEventListener("click", function() {
-  window.location.href = "table-employees.html";
-});
-
-
-let btnEntrees = document.querySelector('[data-popup="popup-entrees"]');
-let popupEntrees = document.querySelector("#popup-entrees");
-
-
- btnEntrees.addEventListener("click", function() {
-    popupEntrees.classList.toggle("active");
-});
-/***fermer popup entrees */
-let closeEntrees = document.querySelector("#popup-entrees .close-popup");
-
-closeEntrees.addEventListener("click", function() {
-    popupEntrees.classList.remove("active");
-});
-
-let btnPlats = document.querySelector("[data-popup='popup-plats']");
-let popupPlats = document.querySelector("#popup-plats");
-
-btnPlats.addEventListener("click", function() {
-    popupPlats.classList.toggle("active");
-}); 
-
-/**fermer popup plats */
-let closePlats = document.querySelector("#popup-plats .close-popup");
-
-closePlats.addEventListener("click", function() {
-    popupPlats.classList.remove("active");
-});
-
-let btnDesserts = document.querySelector("[data-popup='popup-desserts']");
-let popupDesserts = document.querySelector("#popup-desserts");
-btnDesserts.addEventListener("click", function() {
-    popupDesserts.classList.toggle("active");
-});
-
-/**fermer popup desserts */
-let closeDesserts = document.querySelector("#popup-desserts .close-popup");
-
-closeDesserts.addEventListener("click", function() {
-    popupDesserts.classList.remove("active");
-});
-
-let btnBoissons = document.querySelector("[data-popup='popup-boissons']");
-let popupBoissons = document.querySelector("#popup-boissons");
-btnBoissons.addEventListener("click", function() {
-    popupBoissons.classList.toggle("active");
-});
-
-/**fermer popup boissons */
-let closeBoissons = document.querySelector("#popup-boissons .close-popup");
-
-closeBoissons.addEventListener("click", function() {
-    popupBoissons.classList.remove("active");
-});
-
-/**********************Validation de formulaire */
-
-const validationForm = document.querySelectorAll(".send-f");
-
-const inputRequiredForm = {
-    name: document.getElementById("name"),
-    email: document.getElementById("email"),
-    phone: document.getElementById("phone"),
-    menu: document.getElementById("Nmenu"),
-    quantity: document.getElementById("quantity"),
-    date: document.getElementById("date"),
-    time: document.getElementById("time"),
-    guests: document.getElementById("guests"),
-    orderDetails: document.getElementById("orderDetails")
-};
-
-const regexNom = /^[A-Za-zÀ-ÿ\s'-]+$/;
-const regexEmail = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+$/;
-const regexTel = /^\d{8}$/;
-
-for (let i = 0; i < validationForm.length; i++) {
-  validationForm[i].addEventListener("click", validityForm);
-}
-function validityForm(e) {
-  let valid = true;
-
-  const errorName = document.getElementById("nameError");
-  const errorEmail = document.getElementById("emailError");
-  const errorPhone = document.getElementById("phoneError");
-  const errorMenu = document.getElementById("menuError");
-  const errorQuantity = document.getElementById("quantityError");
-  const errorDate = document.getElementById("dateError");
-  const errorTime = document.getElementById("timeError");
-  const errorGuests = document.getElementById("guestsError");
-
-  if (inputRequiredForm.name.value.trim() === "") {
-    errorName.textContent = "Le nom est obligatoire.";
-    errorName.style.color = "#ffcc00";
-    errorName.style.fontWeight = "bold";
-    valid = false;
-  } else if (!regexNom.test(inputRequiredForm.name.value.trim())) {
-    errorName.textContent = "Le nom ne doit contenir que des lettres.";
-    errorName.style.color = "#ffcc00";
-    errorName.style.fontWeight = "bold";
-    valid = false;
-  } else {
-    errorName.textContent = "";
-  }
-
-  if (inputRequiredForm.email.value.trim() === "") {
-    errorEmail.textContent = "L'email est obligatoire.";
-    errorEmail.style.color = "#ffcc00";
-    errorEmail.style.fontWeight = "bold";
-    valid = false;
-  } else if (!regexEmail.test(inputRequiredForm.email.value.trim())) {
-    errorEmail.textContent = "L'email est invalide.";
-    errorEmail.style.color = "#ffcc00";
-    errorEmail.style.fontWeight = "bold";
-    valid = false;
-  } else {
-    errorEmail.textContent = "";
-  }
-
-  if (inputRequiredForm.phone.value.trim() === "") {
-    errorPhone.textContent = "Le téléphone est obligatoire.";
-    errorPhone.style.color = "#ffcc00";
-    errorPhone.style.fontWeight = "bold";
-    valid = false;
-  } else if (!regexTel.test(inputRequiredForm.phone.value.trim())) {
-    errorPhone.textContent = "Le téléphone doit contenir 8 chiffres.";
-    errorPhone.style.color = "#ffcc00";
-    errorPhone.style.fontWeight = "bold";
-    valid = false;
-  } else {
-    errorPhone.textContent = "";
-  }
-
-  if (inputRequiredForm.menu.value.trim() === "") {
-    errorMenu.textContent = "Veuillez choisir un menu ou un plat.";
-    errorMenu.style.color = "#ffcc00";
-    errorMenu.style.fontWeight = "bold";
-    valid = false;
-  } else {
-    errorMenu.textContent = "";
-  }
-
-  if (inputRequiredForm.quantity.value.trim() === "") {
-    errorQuantity.textContent = "La quantité est obligatoire.";
-    errorQuantity.style.color = "#ffcc00";
-    errorQuantity.style.fontWeight = "bold";
-    valid = false;
-  } else {
-    errorQuantity.textContent = "";
-  }
-
-  if (inputRequiredForm.date.value.trim() === "") {
-    errorDate.textContent = "La date est obligatoire.";
-    errorDate.style.color = "#ffcc00";
-    errorDate.style.fontWeight = "bold";
-    valid = false;
-  } else {
-    errorDate.textContent = "";
-  }
-
-  if (inputRequiredForm.time.value.trim() === "") {
-    errorTime.textContent = "L'heure est obligatoire.";
-    errorTime.style.color = "#ffcc00";
-    errorTime.style.fontWeight = "bold";
-    valid = false;
-  } else {
-    errorTime.textContent = "";
-  }
-
-  if (inputRequiredForm.guests.value.trim() === "") {
-    errorGuests.textContent = "Le nombre de personnes est obligatoire.";
-    errorGuests.style.color = "#ffcc00";
-    errorGuests.style.fontWeight = "bold";
-    valid = false;
-  } else {
-    errorGuests.textContent = "";
-  }
-
-  if (valid === false) {
-    e.preventDefault();
-  }
-}
-
-/*****section témoignages */
-
-/*   Sélection des éléments HTML */
-let slides = document.querySelectorAll("#temoignages .slide");
-let btnSuiv = document.querySelector(".suiv");
-let btnPrec = document.querySelector(".prec");
-let index = 0;
-
-/*  Fonction pour afficher la carte active */
-function afficherSlide(n) {
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].classList.remove("active");
-    }
-    slides[n].classList.add("active");
-}
-
-/* Clic sur le bouton Suivant */
-btnSuiv.addEventListener("click", function() {
-    index = index + 1;
-    if (index >= slides.length) {
-        index = 0;
-    }
-    afficherSlide(index);
-});
-
-/*   Clic sur le bouton Précédent */
-btnPrec.addEventListener("click", function() {
-    index = index - 1;
-    if (index < 0) {
-        index = slides.length - 1;
-    }
-    afficherSlide(index);
-});
-
-/*  Defilement automatique toutes les 4 secondes */
-setInterval(function() {
-    index = index + 1;
-    if (index >= slides.length) {
-        index = 0;
-    }
-    afficherSlide(index);
-}, 4000);
-
-
-/********************** Validation du formulaire de contact */
-
-const btnContact = document.querySelector(".send-contact");
-
-const inputContactForm = {
-    name: document.getElementById("contact-name"),
-    email: document.getElementById("contact-email"),
-    message: document.getElementById("contact-message")
-};
-
-if (btnContact) {
-    btnContact.addEventListener("click", validityContactForm);
-}
-
-function validityContactForm(e) {
-    let valid = true;
-
-    const errorContactName = document.getElementById("contactNameError");
-    const errorContactEmail = document.getElementById("contactEmailError");
-    const errorContactMessage = document.getElementById("contactMessageError");
-
-    /* Vérification du Nom */
-    if (inputContactForm.name.value.trim() === "") {
-        errorContactName.textContent = "Le nom est obligatoire.";
-        errorContactName.style.color = "#ffcc00";
-        errorContactName.style.fontWeight = "bold";
-        valid = false;
-    } else if (!regexNom.test(inputContactForm.name.value.trim())) {
-        errorContactName.textContent = "Le nom ne doit contenir que des lettres.";
-        errorContactName.style.color = "#ffcc00";
-        errorContactName.style.fontWeight = "bold";
-        valid = false;
-    } else {
-        errorContactName.textContent = "";
+    if (btnOrder) {
+        btnOrder.addEventListener("click", () => {
+            document.getElementById("menu")?.scrollIntoView({ behavior: "instant" });
+        });
     }
 
-    /* Vérification de l'Email */
-    if (inputContactForm.email.value.trim() === "") {
-        errorContactEmail.textContent = "L'email est obligatoire.";
-        errorContactEmail.style.color = "#ffcc00";
-        errorContactEmail.style.fontWeight = "bold";
-        valid = false;
-    } else if (!regexEmail.test(inputContactForm.email.value.trim())) {
-        errorContactEmail.textContent = "L'email est invalide.";
-        errorContactEmail.style.color = "#ffcc00";
-        errorContactEmail.style.fontWeight = "bold";
-        valid = false;
-    } else {
-        errorContactEmail.textContent = "";
+    if (btnReserve) {
+        btnReserve.addEventListener("click", () => {
+            document.getElementById("Reservation-Commande")?.scrollIntoView({ behavior: "instant" });
+        });
     }
 
-    /* Vérification du Message */
-    if (inputContactForm.message.value.trim() === "") {
-        errorContactMessage.textContent = "Le message est obligatoire.";
-        errorContactMessage.style.color = "#ffcc00";
-        errorContactMessage.style.fontWeight = "bold";
-        valid = false;
-    } else {
-        errorContactMessage.textContent = "";
+    if (btnContactHero) {
+        btnContactHero.addEventListener("click", () => {
+            document.getElementById("contact")?.scrollIntoView({ behavior: "instant" });
+        });
     }
 
-    if (valid === false) {
-        e.preventDefault();
+    if (btnAdmin) {
+        btnAdmin.addEventListener("click", () => {
+            window.location.href = "table-employees.html";
+        });
     }
-}
-  }
-/********Partie popup et formulaire de Ajout employees */
-  const boutonAjout = document.querySelector(".ajout");
-  const popupEmploye = document.querySelector("#popup-employe");
-  const fermerAjEmploye = document.querySelector("#fermer-employe");
-  const fermerFormulaire = document.querySelector("#fermer-formulaire");
-  const formulaireEmploye = document.querySelector("#form-employe");
-  const corpsTableau = document.querySelector(".employees-table tbody");
-  const popupSuppression = document.querySelector("#popup-suppression");
-  const confirmerSuppression = document.querySelector("#confirmer-suppression");
-  const annulerSuppression = document.querySelector("#annuler-suppression");
-  const toastSuppression = document.querySelector("#toast-suppression");
-  let ligneASupprimer;
 
-  if (formulaireEmploye) {
-    boutonAjout.addEventListener("click", function() {
-      popupEmploye.classList.add("active");
-    });
+    // ==========================================
+    // 2. GESTION DES POPUPS MENU (ENTRÉES, PLATS, ETC.)
+    // ==========================================
+    const setupPopup = (triggerSelector, popupId) => {
+        const btn = document.querySelector(triggerSelector);
+        const popup = document.querySelector(popupId);
+        if (!btn || !popup) return;
 
-    fermerAjEmploye.addEventListener("click", function() {
-      popupEmploye.classList.remove("active");
-    });
+        const closeBtn = popup.querySelector(".close-popup");
 
-    fermerFormulaire.addEventListener("click", function() {
-      popupEmploye.classList.remove("active");
-    });
-
-    const inputEmployeForm = {
-      nom: document.getElementById("employe-nom"),
-      prenom: document.getElementById("employe-prenom"),
-      poste: document.getElementById("employe-poste"),
-      adresse: document.getElementById("employe-adresse")
+        btn.addEventListener("click", () => popup.classList.toggle("active"));
+        if (closeBtn) {
+            closeBtn.addEventListener("click", () => popup.classList.remove("active"));
+        }
     };
 
-    const regexNomEmploye = /^[A-Za-zÀ-ÿ\s'-]+$/;
+    setupPopup('[data-popup="popup-entrees"]', "#popup-entrees");
+    setupPopup('[data-popup="popup-plats"]', "#popup-plats");
+    setupPopup('[data-popup="popup-desserts"]', "#popup-desserts");
+    setupPopup('[data-popup="popup-boissons"]', "#popup-boissons");
 
-    formulaireEmploye.addEventListener("submit", function(e) {
-      let valid = true;
-      const erreurs = {
-        nom: document.getElementById("employe-nom-error"),
-        prenom: document.getElementById("employe-prenom-error"),
-        poste: document.getElementById("employe-poste-error"),
-        adresse: document.getElementById("employe-adresse-error")
-      };
+    // ==========================================
+    // 3. COMMANDE DIRECTE D'UN PLAT (BOUTON COMMANDER)
+    // ==========================================
+    const buyButtons = document.querySelectorAll('.btn-commander button');
+    buyButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            const itemCard = e.target.closest('.item');
+            if (!itemCard) return;
 
-      if (inputEmployeForm.nom.value.trim() === "") {
-        erreurs.nom.textContent = "Ce champ est obligatoire.";
-        erreurs.nom.style.color = "#ffcc00";
-        erreurs.nom.style.fontWeight = "bold";
-        valid = false;
-      } else if (!regexNomEmploye.test(inputEmployeForm.nom.value.trim())) {
-        erreurs.nom.textContent = "Utilisez seulement des lettres.";
-        erreurs.nom.style.color = "#ffcc00";
-        erreurs.nom.style.fontWeight = "bold";
-        valid = false;
-      } else {
-        erreurs.nom.textContent = "";
-      }
+            const platNom = itemCard.querySelector('.nom-plats h3')?.innerText || "votre plat";
+            const platPrix = itemCard.querySelector('.prix p')?.innerText || "";
 
-      if (inputEmployeForm.prenom.value.trim() === "") {
-        erreurs.prenom.textContent = "Ce champ est obligatoire.";
-        erreurs.prenom.style.color = "#ffcc00";
-        erreurs.prenom.style.fontWeight = "bold";
-        valid = false;
-      } else if (!regexNomEmploye.test(inputEmployeForm.prenom.value.trim())) {
-        erreurs.prenom.textContent = "Utilisez seulement des lettres.";
-        erreurs.prenom.style.color = "#ffcc00";
-        erreurs.prenom.style.fontWeight = "bold";
-        valid = false;
-      } else {
-        erreurs.prenom.textContent = "";
-      }
+            const adresse = prompt(`Commande de : ${platNom} (${platPrix})\nVeuillez entrer votre adresse de livraison :`);
 
-      if (inputEmployeForm.poste.value.trim() === "") {
-        erreurs.poste.textContent = "Ce champ est obligatoire.";
-        erreurs.poste.style.color = "#ffcc00";
-        erreurs.poste.style.fontWeight = "bold";
-        valid = false;
-      } else {
-        erreurs.poste.textContent = "";
-      }
-
-      if (inputEmployeForm.adresse.value.trim() === "") {
-        erreurs.adresse.textContent = "Ce champ est obligatoire.";
-        erreurs.adresse.style.color = "#ffcc00";
-        erreurs.adresse.style.fontWeight = "bold";
-        valid = false;
-      } else {
-        erreurs.adresse.textContent = "";
-      }
-
-      if (valid === false) {
-        e.preventDefault();
-      }
+            if (adresse) {
+                alert(`Merci ! Votre commande pour "${platNom}" a été validée.\nAdresse de livraison : ${adresse}`);
+                const activePopup = e.target.closest('.popup-overlay');
+                if (activePopup) {
+                    activePopup.classList.remove('active');
+                    activePopup.style.display = 'none';
+                }
+            }
+        });
     });
 
-      /***Toast */
+    // ==========================================
+    // 4. VALIDATION FORMULAIRE RESERVATION / COMMANDE
+    // ==========================================
+    const validationFormButtons = document.querySelectorAll(".send-f");
+    
+    if (validationFormButtons.length > 0) {
+        const inputRequiredForm = {
+            name: document.getElementById("name"),
+            email: document.getElementById("email"),
+            phone: document.getElementById("phone"),
+            menu: document.getElementById("Nmenu"),
+            quantity: document.getElementById("quantity"),
+            date: document.getElementById("date"),
+            time: document.getElementById("time"),
+            guests: document.getElementById("guests")
+        };
 
-    corpsTableau.addEventListener("click", function(e) {
-      if (e.target.closest("td:last-child button:last-child")) {
-        ligneASupprimer = e.target.closest("tr");
-        popupSuppression.classList.add("active");
-      }
-    });
+        validationFormButtons.forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                let valid = true;
 
-    confirmerSuppression.addEventListener("click", function() {
-      ligneASupprimer.remove();
-      popupSuppression.classList.remove("active");
-      toastSuppression.classList.add("active");
-      setTimeout(function() {
-        toastSuppression.classList.remove("active");
-      }, 2000);
-    });
+                const checkField = (input, errorId, errorMsg, regex = null) => {
+                    const errorElem = document.getElementById(errorId);
+                    if (!errorElem || !input) return;
 
-    annulerSuppression.addEventListener("click", function() {
-      popupSuppression.classList.remove("active");
-    });
-  }
+                    const val = input.value.trim();
+                    if (val === "") {
+                        errorElem.textContent = errorMsg.required;
+                        errorElem.style.color = "#ffcc00";
+                        errorElem.style.fontWeight = "bold";
+                        valid = false;
+                    } else if (regex && !regex.test(val)) {
+                        errorElem.textContent = errorMsg.invalid;
+                        errorElem.style.color = "#ffcc00";
+                        errorElem.style.fontWeight = "bold";
+                        valid = false;
+                    } else {
+                        errorElem.textContent = "";
+                    }
+                };
+
+                checkField(inputRequiredForm.name, "nameError", { required: "Le nom est obligatoire.", invalid: "Le nom ne doit contenir que des lettres." }, regexNom);
+                checkField(inputRequiredForm.email, "emailError", { required: "L'email est obligatoire.", invalid: "L'email est invalide." }, regexEmail);
+                checkField(inputRequiredForm.phone, "phoneError", { required: "Le téléphone est obligatoire.", invalid: "Numéro de téléphone invalide." }, regexTel);
+                checkField(inputRequiredForm.menu, "menuError", { required: "Veuillez choisir un menu ou un plat." });
+                checkField(inputRequiredForm.quantity, "quantityError", { required: "La quantité est obligatoire." });
+                checkField(inputRequiredForm.date, "dateError", { required: "La date est obligatoire." });
+                checkField(inputRequiredForm.time, "timeError", { required: "L'heure est obligatoire." });
+                checkField(inputRequiredForm.guests, "guestsError", { required: "Le nombre de personnes est obligatoire." });
+
+                if (!valid) e.preventDefault();
+            });
+        });
+    }
+
+    // ==========================================
+    // 5. SLIDER TEMOIGNAGES
+    // ==========================================
+    const slides = document.querySelectorAll("#temoignages .slide");
+    const btnSuiv = document.querySelector(".suiv");
+    const btnPrec = document.querySelector(".prec");
+
+    if (slides.length > 0) {
+        let index = 0;
+
+        const afficherSlide = (n) => {
+            slides.forEach(slide => slide.classList.remove("active"));
+            slides[n].classList.add("active");
+        };
+
+        if (btnSuiv) {
+            btnSuiv.addEventListener("click", () => {
+                index = (index + 1) % slides.length;
+                afficherSlide(index);
+            });
+        }
+
+        if (btnPrec) {
+            btnPrec.addEventListener("click", () => {
+                index = (index - 1 + slides.length) % slides.length;
+                afficherSlide(index);
+            });
+        }
+
+        setInterval(() => {
+            index = (index + 1) % slides.length;
+            afficherSlide(index);
+        }, 4000);
+    }
+
+    // ==========================================
+    // 6. FORMULAIRE DE CONTACT
+    // ==========================================
+    const btnContact = document.querySelector(".send-contact");
+    if (btnContact) {
+        btnContact.addEventListener("click", (e) => {
+            let valid = true;
+            const nameInput = document.getElementById("contact-name");
+            const emailInput = document.getElementById("contact-email");
+            const messageInput = document.getElementById("contact-message");
+
+            const errorName = document.getElementById("contactNameError");
+            const errorEmail = document.getElementById("contactEmailError");
+            const errorMessage = document.getElementById("contactMessageError");
+
+            if (!nameInput.value.trim()) {
+                errorName.textContent = "Le nom est obligatoire.";
+                errorName.style.color = "#ffcc00";
+                valid = false;
+            } else {
+                errorName.textContent = "";
+            }
+
+            if (!emailInput.value.trim() || !regexEmail.test(emailInput.value.trim())) {
+                errorEmail.textContent = "Email invalide.";
+                errorEmail.style.color = "#ffcc00";
+                valid = false;
+            } else {
+                errorEmail.textContent = "";
+            }
+
+            if (!messageInput.value.trim()) {
+                errorMessage.textContent = "Le message est obligatoire.";
+                errorMessage.style.color = "#ffcc00";
+                valid = false;
+            } else {
+                errorMessage.textContent = "";
+            }
+
+            if (!valid) e.preventDefault();
+        });
+    }
+
+    // ==========================================
+    // 7. GESTION DU TABLEAU EMPLOYES (MODAL BOOTSTRAP)
+    // ==========================================
+    const addEmployeeForm = document.getElementById('addEmployeeForm');
+    const tableBody = document.getElementById('employeeTableBody') || document.querySelector('.employees-table tbody');
+    const employeeModalElement = document.getElementById('addEmployeeModal');
+
+    if (addEmployeeForm && tableBody) {
+        addEmployeeForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const matricule = document.getElementById('empMatricule')?.value.trim() || `EMP00${tableBody.children.length + 1}`;
+            const prenom = document.getElementById('empPrenom')?.value.trim() || document.getElementById('employe-prenom')?.value.trim();
+            const nom = document.getElementById('empNom')?.value.trim() || document.getElementById('employe-nom')?.value.trim();
+            const adresse = document.getElementById('empAdresse')?.value.trim() || document.getElementById('employe-adresse')?.value.trim();
+            const poste = document.getElementById('empPoste')?.value.trim() || document.getElementById('employe-poste')?.value.trim();
+            const salaireRaw = document.getElementById('empSalaire')?.value.trim() || "";
+
+            const salaire = salaireRaw ? (salaireRaw.toLowerCase().includes('fcfa') ? salaireRaw : `${salaireRaw} FCFA`) : "—";
+
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `
+                <td class="fw-bold text-secondary ps-3">${matricule}</td>
+                <td>${prenom}</td>
+                <td>${nom}</td>
+                <td>${adresse}</td>
+                <td class="fw-medium">${poste}</td>
+                <td class="fw-semibold">${salaire}</td>
+                <td class="text-end pe-3">
+                    <button class="btn btn-sm btn-outline-secondary me-1" type="button" title="Modifier">
+                        <img src="https://icons.getbootstrap.com/assets/icons/pencil-square.svg" alt="Modifier" width="16" height="16">
+                    </button>
+                    <button class="btn btn-sm btn-outline-danger btn-delete" type="button" title="Supprimer">
+                        <img src="https://icons.getbootstrap.com/assets/icons/trash3.svg" alt="Supprimer" width="16" height="16">
+                    </button>
+                </td>
+            `;
+
+            tableBody.appendChild(newRow);
+
+            addEmployeeForm.reset();
+
+            if (employeeModalElement && typeof bootstrap !== 'undefined') {
+                const modalInstance = bootstrap.Modal.getInstance(employeeModalElement) || new bootstrap.Modal(employeeModalElement);
+                modalInstance.hide();
+            } else {
+                const popupEmploye = document.querySelector("#popup-employe");
+                if (popupEmploye) popupEmploye.classList.remove("active");
+            }
+        });
+
+        tableBody.addEventListener('click', (e) => {
+            const deleteBtn = e.target.closest('.btn-delete') || e.target.closest("td:last-child button:last-child");
+            if (deleteBtn) {
+                const row = deleteBtn.closest('tr');
+                if (confirm('Voulez-vous vraiment supprimer cet employé ?')) {
+                    row.remove();
+                }
+            }
+        });
+    }
+});
